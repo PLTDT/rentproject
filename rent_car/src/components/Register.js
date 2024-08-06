@@ -1,10 +1,17 @@
 import React from 'react';
-import '../styles/Login.css';
-const Login = () => {
+import '../styles/Register.css';
+const Register = () => {
     return (
         <div className="form-container">
             <form className="centered-form">
-                <h2>登入</h2>
+                <h2>註冊</h2>
+                <label for="email">姓名：</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="請輸入姓名"
+                />
 
                 <label for="email">Email：</label>
                 <input
@@ -22,10 +29,10 @@ const Login = () => {
                     placeholder="請輸入密碼"
                 />
 
-                <button type="submit">確定登入</button>
+                <button type="submit">確定註冊</button>
             </form>
         </div>
     );
 };
 
-export default Login;
+export default Register;
