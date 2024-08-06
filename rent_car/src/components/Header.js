@@ -3,7 +3,7 @@ import header from '../styles/Header.module.css';
 
 const Header = () => {
     return (
-    <header>
+    <header className={header.header}>
         <div className={header.banner}>
             <div className={header.navbar}>
                 <img src={require('../assets/logo.png')} alt="背景圖" className={header.logo} />

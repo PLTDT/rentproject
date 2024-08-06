@@ -1,18 +1,15 @@
-/* 整體 footer 樣式 */
-footer {
-    background: #343434; /* 背景顏色 */
-}
-
 .footer {
     background: #343434; /* 背景顏色 */
     padding-top: 50px; /* 上方內邊距 */
     color: #fff; /* 文字顏色 */
+    width: 100%;
 }
 
 /* 主要容器樣式 */
 .container {
     padding-top: 20px;
-    width: 1140px; /* 容器寬度 */
+    width: 100%;
+    max-width: 1140px;
     margin: auto; /* 自動外邊距，居中對齊 */
     display: flex; /* 使用 Flexbox 佈局 */
     justify-content: center; /* 垂直置中 */
