@@ -1,22 +1,66 @@
 import React from 'react';
+import '../styles/Body.css';
 import '../styles/Footer.css';
+
 const Footer = () => {
     return (
-        <footer className="Footer">
-            <p>
-                <a href="/about">關於我們</a>
-            </p>
-            <p>
-                電子郵件: <a href="mailto:info@example.com">info@example.com</a>
-            </p>
-            <p>
-                <a href="https://www.facebook.com/yourfacebookpage">
-                    Facebook 頁面
-                </a>
-            </p>
-            <p>
-                <a href="/contact">聯繫我們</a>
-            </p>
+        <footer>
+            <div className="container">
+                <div className="footer-content">
+                    <h3>聯絡我們</h3>
+                    <p>Email: cheaprent@gmail.com</p>
+                    <p>電話號碼：(02)-2795-8595</p>
+                    <p>地址：台北市大安區建國南路二段231號3樓</p>
+                </div>
+                <div className="footer-content">
+                    <h3>快速連結</h3>
+                    <ul className="list">
+                        <li>
+                            <a href=" ">首頁</a>
+                        </li>
+                        <li>
+                            <a href=" ">關於我們</a>
+                        </li>
+                        <li>
+                            <a href=" ">租車服務</a>
+                        </li>
+                        <li>
+                            <a href=" ">車款介紹</a>
+                        </li>
+                        <li>
+                            <a href=" ">聯絡方式</a>
+                        </li>
+                    </ul>
+                </div>
+                <div className="footer-content">
+                    <h3>追蹤我們</h3>
+                    <ul className="list">
+                        <li>
+                            <a href=" ">
+                                <i className="fab fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" ">
+                                <i className="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" ">
+                                <i className="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=" ">
+                                <i className="fab fa-line"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div className="bottom-bar">
+                <p>&copy; 2024 your company. All rights reserved</p>
+            </div>
         </footer>
     );
 };
