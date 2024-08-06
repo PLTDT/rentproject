@@ -1,0 +1,7 @@
+.Footer {
+    background-color: rgba(5, 3, 3, 0.831);
+    color: white;
+    /* backgroundColor: 'rgb(255, 255, 255)', */
+    padding: 20px;
+    text-align: center;
+}

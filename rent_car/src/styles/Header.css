@@ -1,0 +1,23 @@
+.Header {
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+
+.Header img {
+    margin-left: 1rem;
+}
+
+.Header ul {
+    display: flex;
+    padding: 0;
+    margin: 1rem 1rem;
+    /* margin-right: 1rem; */
+}
+
+.Header ul li {
+    list-style-type: none;
+    margin: 0 0.4rem;
+}
