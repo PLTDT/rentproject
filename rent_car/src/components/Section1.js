@@ -10,11 +10,11 @@ const Section1 = () => {
                 <h1>GORENT租車趣</h1>
             </div>
             <div className={section1.contentinfo}>
-                <p>車款多元自行選擇</p>
-                <p>租期彈性隨時還車</p>
-                <p>計價實惠絕無欺騙</p>
-                <p>輕鬆用車絕無煩惱</p>
-                <p>路上拋錨及時支援</p>
+                <p><span className={section1.sp}>● </span>車款多元自行選擇</p>
+                <p><span className={section1.sp}>● </span>租期彈性隨時還車</p>
+                <p><span className={section1.sp}>● </span>計價實惠絕無欺騙</p>
+                <p><span className={section1.sp}>● </span>輕鬆用車絕無煩惱</p>
+                <p><span className={section1.sp}>● </span>路上拋錨及時支援</p>
             </div>
         </div>
     </div>

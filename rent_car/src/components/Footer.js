@@ -7,8 +7,8 @@ const Footer = () => {
             <div className={footer.container}>
                 <div className={footer.footerContent}>
                     <h3>聯絡我們</h3>
-                    <p>Email: cheaprent@gmail.com</p>
-                    <p>電話號碼：(02)-2795-8595</p>
+                    <p>Email: cheaprent@gmail.com&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+                    <p>電話號碼：(02)-2795-8595&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
                     <p>地址：台北市大安區建國南路二段231號3樓</p>
                 </div>
                 <div className={footer.footerContent}>

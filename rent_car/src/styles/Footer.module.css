@@ -29,8 +29,9 @@ h3 {
 
 /* 每個內容區塊的文字樣式 */
 .footerContent p {
-    width: 190px; /* 文字區域寬度 */
-    margin: auto; /* 自動外邊距，居中對齊 */
+    text-align: center;
+    width: 100%; /* 文字區域寬度 */
+    margin: 0; /* 自動外邊距，居中對齊 */
     padding: 7px; /* 內邊距 */
 }
 
