@@ -1,13 +1,16 @@
 import React from 'react';
-import '../styles/Body.css';
-import '../styles/Header.css';
+import header from '../styles/Header.module.css';
 
 const Header = () => {
     return (
         <header>
-            <div className="banner">
-                <div className="navbar">
-                    <img src={require('../assets/logo.png')} className="logo" />
+            <div className={header.banner}>
+                <div className={header.navbar}>
+                    <img
+                        src={require('../assets/logo.png')}
+                        alt="背景圖"
+                        className={header.logo}
+                    />
                     <ul>
                         <li>
                             <a href=" ">首頁</a>
@@ -27,7 +30,7 @@ const Header = () => {
                     </ul>
                 </div>
 
-                <div className="content">
+                <div className={header.content}>
                     <h1>租借你想要的車子</h1>
                     <p>
                         請隨時查看我們的網頁內容

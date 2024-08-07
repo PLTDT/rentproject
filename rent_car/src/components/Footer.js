@@ -1,20 +1,19 @@
 import React from 'react';
-import '../styles/Body.css';
-import '../styles/Footer.css';
+import footer from '../styles/Footer.module.css';
 
 const Footer = () => {
     return (
         <footer>
-            <div className="container">
-                <div className="footer-content">
+            <div className={footer.container}>
+                <div className={footer.footerContent}>
                     <h3>聯絡我們</h3>
                     <p>Email: cheaprent@gmail.com</p>
                     <p>電話號碼：(02)-2795-8595</p>
                     <p>地址：台北市大安區建國南路二段231號3樓</p>
                 </div>
-                <div className="footer-content">
+                <div className={footer.footerContent}>
                     <h3>快速連結</h3>
-                    <ul className="list">
+                    <ul className={footer.list}>
                         <li>
                             <a href=" ">首頁</a>
                         </li>
@@ -32,9 +31,9 @@ const Footer = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="footer-content">
+                <div className={footer.footerContent}>
                     <h3>追蹤我們</h3>
-                    <ul className="list">
+                    <ul className={footer.socialIcons}>
                         <li>
                             <a href=" ">
                                 <i className="fab fa-facebook"></i>
@@ -58,7 +57,7 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className="bottom-bar">
+            <div className={footer.bottomBar}>
                 <p>&copy; 2024 your company. All rights reserved</p>
             </div>
         </footer>
