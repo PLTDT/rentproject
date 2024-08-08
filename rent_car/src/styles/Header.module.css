@@ -1,10 +1,14 @@
+.header {
+    width: 100%;
+}
+
 .banner {
     width: 100%;
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
         url(../assets/background.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: center center;
 }
 
 .navbar {
@@ -13,13 +17,25 @@
     padding: 35px 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: right;
 }
 
 .logo {
+    margin: 0 0 0 30px;
+    padding: 35px 0;
     width: 120px;
     cursor: pointer;
+    display: flex;
+    position: absolute;
 }
+
+.navbar ul {
+    list-style: none;
+    display: inline-block;
+    margin: 50px 20px;
+    position: relative;
+}
+
 .navbar ul li {
     list-style: none;
     display: inline-block;
@@ -68,7 +84,7 @@
     line-height: 25px;
 }
 
-button {
+.bt {
     width: 200px;
     padding: 15px 0;
     text-align: center;
@@ -83,7 +99,7 @@ button {
     overflow: hidden;
 }
 
-span {
+.btsp {
     background: #009688;
     height: 100%;
     width: 0;
@@ -95,10 +111,60 @@ span {
     transition: 0.5s;
 }
 
-button:hover span {
+.bt:hover span {
     width: 100%;
 }
 
-button:hover {
+.bt:hover {
     border: none;
+}
+
+.signbt {
+    width: 100px;
+    height: 50px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.sisp {
+    background: #009688;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.signbt:hover span {
+    width: 100%;
+}
+
+.signbt:hover {
+    border: none;
+}
+
+.menu {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.signbtdiv {
+    display: flex;
+}
+
+.signdiv {
+    top: 50%;
+    transform: translateY(-20%);
+    padding-left: 10px;
 }

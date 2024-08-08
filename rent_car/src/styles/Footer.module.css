@@ -1,18 +1,15 @@
-/* 整體 footer 樣式 */
-footer {
-    background: #343434; /* 背景顏色 */
-}
-
 .footer {
     background: #343434; /* 背景顏色 */
     padding-top: 50px; /* 上方內邊距 */
     color: #fff; /* 文字顏色 */
+    width: 100%;
 }
 
 /* 主要容器樣式 */
 .container {
     padding-top: 20px;
-    width: 1140px; /* 容器寬度 */
+    width: 100%;
+    max-width: 1140px;
     margin: auto; /* 自動外邊距，居中對齊 */
     display: flex; /* 使用 Flexbox 佈局 */
     justify-content: center; /* 垂直置中 */
@@ -32,8 +29,9 @@ h3 {
 
 /* 每個內容區塊的文字樣式 */
 .footerContent p {
-    width: 190px; /* 文字區域寬度 */
-    margin: auto; /* 自動外邊距，居中對齊 */
+    text-align: center;
+    width: 100%; /* 文字區域寬度 */
+    margin: 0; /* 自動外邊距，居中對齊 */
     padding: 7px; /* 內邊距 */
 }
 
