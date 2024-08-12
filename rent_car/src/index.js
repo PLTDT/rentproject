@@ -5,21 +5,18 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import HomePage from './pages/HomePage';
 import About from './pages/About';
+import Rent from './pages/RentPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-
     <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/HomePage" element={<HomePage />} />
-        <Route path="/About" element={<About />} />
-      </Routes>
-    </Router>
-
+        <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/HomePage" element={<HomePage />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/Rent" element={<Rent />} />
+        </Routes>
+    </Router>,
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
