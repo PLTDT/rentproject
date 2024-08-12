@@ -6,45 +6,6 @@ const Header = () => {
     return (
         <header className={header.header}>
             <div className={header.banner}>
-                <img
-                    src={require('../assets/logo.png')}
-                    alt="背景圖"
-                    className={header.logo}
-                />
-                <div className={header.navbar}>
-                    <ul>
-                        <li className={header.menu}>
-                            <link to="/">首頁</link>
-                        </li>
-                        <li className={header.menu}>
-                            <link to="/">關於我們</link>
-                        </li>
-                        <li className={header.menu}>
-                            <link to="/">租車服務</link>
-                        </li>
-                        <li className={header.menu}>
-                            <link to="/">車款介紹</link>
-                        </li>
-                        <li className={header.menu}>
-                            <link to="/">聯絡方式</link>
-                        </li>
-                    </ul>
-                    <div className={header.signbtdiv}>
-                        <div className={header.signdiv}>
-                            <button className={header.signbt}>
-                                <span className={header.sisp}></span>
-                                <a href=" ">登入</a>
-                            </button>
-                        </div>
-                        <div className={header.signdiv}>
-                            <button className={header.signbt}>
-                                <span className={header.sisp}></span>
-                                <a href=" ">註冊</a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
                 <div className={header.content}>
                     <h1>租借你想要的車子</h1>
                     <p>
@@ -67,3 +28,33 @@ const Header = () => {
 };
 
 export default Header;
+
+//<a href="/HomePage "><img src={require('../assets/logo.png')} alt="背景圖" className={header.logo} /></a>
+//<div className={header.navbar}>
+//    <ul>
+//        <li className={header.menu}><a href="/HomePage ">首頁</a></li>
+//        <li className={header.menu}><a href="/About ">關於我們</a></li>
+//        <li className={header.menu}><a href=" ">租車服務</a></li>
+//        <li className={header.menu}><a href=" ">車款介紹</a></li>
+//        <li className={header.menu}><a href=" ">聯絡方式</a></li>
+//    </ul>
+//    <div className={header.signbtdiv}>
+//        <div className={header.signdiv}><button className={header.signbt}><span className={header.sisp}></span><a className={header.signbta} href=" ">登入</a></button></div>
+//        <div className={header.signdiv}><button className={header.signbt}><span className={header.sisp}></span><a className={header.signbta} href=" ">註冊</a></button></div>
+//    </div>
+//</div>
+
+//<a href="/HomePage "><img src={require('../assets/logo.png')} alt="背景圖" className={header.logo} /></a>
+//<div className={header.navbar}>
+//    <ul>
+//        <li className={header.menu}><a href="/HomePage ">首頁</a></li>
+//        <li className={header.menu}><a href="/About ">關於我們</a></li>
+//        <li className={header.menu}><a href=" ">租車服務</a></li>
+//        <li className={header.menu}><a href=" ">車款介紹</a></li>
+//        <li className={header.menu}><a href=" ">聯絡方式</a></li>
+//    </ul>
+//    <div className={header.signbtdiv}>
+//        <div className={header.signdiv}><button className={header.signbt}><span className={header.sisp}></span><a className={header.signbta} href=" ">登入</a></button></div>
+//        <div className={header.signdiv}><button className={header.signbt}><span className={header.sisp}></span><a className={header.signbta} href=" ">註冊</a></button></div>
+//    </div>
+//</div>

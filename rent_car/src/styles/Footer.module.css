@@ -42,6 +42,10 @@ h3 {
     list-style: none; /* 去除列表樣式 */
 }
 
+.lista {
+    text-decoration: none;
+}
+
 /* 列表項目樣式 */
 .list li {
     width: auto; /* 自動寬度 */
@@ -59,7 +63,7 @@ h3 {
     top: 100%; /* 上邊距 100% */
     width: 0; /* 初始寬度為 0 */
     height: 2px; /* 高度 */
-    background: #f18930; /* 顏色 */
+    background: #009688; /* 顏色 */
     transition-duration: .5s; /* 變化過渡時間 */
 }
 
@@ -88,24 +92,24 @@ h3 {
 }
 
 /* 連結樣式 */
-a {
+.faba {
     text-decoration: none; /* 去除下劃線 */
     color: #fff; /* 顏色 */
 }
 
 /* 連結懸停樣式 */
-a:hover {
-    color: #f18930; /* 懸停時顏色 */
+.faba:hover {
+    color: #009688; /* 懸停時顏色 */
 }
 
 /* 社交圖標懸停樣式 */
 .socialIcons i:hover {
-    color: #f18930; /* 懸停時顏色 */
+    color: #009688; /* 懸停時顏色 */
 }
 
 /* 底部條樣式 */
 .bottomBar {
-    background: #f18930; /* 背景顏色 */
+    background: gray; /* 背景顏色 */
     text-align: center; /* 文字置中 */
     padding: 10px 0; /* 上下內邊距 */
     margin-top: 50px; /* 上邊距 */

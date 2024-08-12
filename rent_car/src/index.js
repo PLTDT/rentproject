@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Header from './components/Header';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Section1 from './components/Section1';
+import HomePage from './pages/HomePage';
+import About from './pages/About';
+import Rent from './pages/RentPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode>
-        <Header />
-        <Section1 />
-        <Footer />
-    </React.StrictMode>,
+    <Router>
+        <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/HomePage" element={<HomePage />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/Rent" element={<Rent />} />
+        </Routes>
+    </Router>,
 );
 
 reportWebVitals();
