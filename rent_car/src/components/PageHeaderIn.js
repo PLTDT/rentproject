@@ -1,12 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // 引入 useNavigate
+import { useNavigate, Link } from "react-router-dom"; // 引入 useNavigate 和 Link
 import pheader from "../styles/PageHeader.module.css";
 
 const PageHeaderIn = () => {
     const navigate = useNavigate(); // 初始化 useNavigate
 
     const handleLogout = () => {
-        // 這裡可以添加登出邏輯，比如清理 session 或 token 等
+        // 清除登入狀態
+        localStorage.removeItem('token'); // 移除 token
         alert("登出成功");
         navigate("/HomePage"); // 導航到 HomePage
     };
@@ -14,29 +15,29 @@ const PageHeaderIn = () => {
     return (
         <header className={pheader.header}>
             <div className={pheader.banner}>
-                <a href="/HomePage ">
+                <Link to="/HomePageIn">
                     <img
                         src={require("../assets/logo.png")}
                         alt="背景圖"
                         className={pheader.logo}
                     />
-                </a>
+                </Link>
                 <div className={pheader.navbar}>
                     <ul>
                         <li className={pheader.menu}>
-                            <a href="/HomePageIn ">首頁</a>
+                            <Link to="/HomePageIn">首頁</Link>
                         </li>
                         <li className={pheader.menu}>
-                            <a href="/AboutIn ">關於我們</a>
+                            <Link to="/AboutIn">關於我們</Link>
                         </li>
                         <li className={pheader.menu}>
-                            <a href="/Rent ">租車服務</a>
+                            <Link to="/Rent">租車服務</Link>
                         </li>
                         <li className={pheader.menu}>
-                            <a href=" ">車款介紹</a>
+                            <Link to="#">車款介紹</Link> {/* 使用 `#` 來處理空鏈接 */}
                         </li>
                         <li className={pheader.menu}>
-                            <a href=" ">服務據點</a>
+                            <Link to="#">服務據點</Link> {/* 使用 `#` 來處理空鏈接 */}
                         </li>
                     </ul>
                     <div className={pheader.signbtdiv}>
@@ -57,6 +58,7 @@ const PageHeaderIn = () => {
 };
 
 export default PageHeaderIn;
+
 
 
 
