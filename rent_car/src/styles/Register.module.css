@@ -85,3 +85,8 @@ body {
     top: 5%;
     color: black;
 }
+
+/* 錯誤消息 */
+.error {
+    color: red;
+}

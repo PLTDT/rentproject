@@ -21,7 +21,7 @@ const Login = ({ closeLogin }) => {
                         name="password"
                         placeholder="請輸入密碼"
                     />
-                    <button className={login.loginbtn} type="submit">
+                    <button className={login.loginbtn} type="submit" onClick={login}>
                         登入
                     </button>
                     <button

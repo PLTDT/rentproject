@@ -43,7 +43,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <a className={footer.lista} href=" ">
-                                聯絡方式
+                                服務據點
                             </a>
                         </li>
                     </ul>

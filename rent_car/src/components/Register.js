@@ -1,10 +1,41 @@
 import React from "react";
 import register from "../styles/Register.module.css";
+import { useState } from "react";
+import axios from "axios";
+
 const Register = ({ closeRegister }) => {
+    const [employeename, setEmployeename] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [secondPassword, setSecondPassword] = useState("");
+    const [error, setError] = useState("");
+
+    async function save(event) {
+        event.preventDefault();
+        
+        // 驗證密碼是否匹配
+        if (password !== secondPassword) {
+            setError("密碼與再次確認密碼不匹配！");
+            return;
+        }
+
+        try {
+            await axios.post("http://localhost:8080/api/v1/employee/save", {
+                employeename: employeename,
+                email: email,
+                password: password,
+            });
+            alert("Employee Registration Successfully");
+            closeRegister(); // 提交成功後關閉註冊表單
+        } catch (err) {
+            alert("註冊過程中出錯，請稍後再試。");
+        }
+    }
+
     return (
         <div className={register.modal}>
             <div className={register.form_container}>
-                <form className={register.centered_form}>
+                <form className={register.centered_form} onSubmit={save}>
                     <h2>註冊</h2>
                     <label htmlFor="email">Email：</label>
                     <input
@@ -12,6 +43,10 @@ const Register = ({ closeRegister }) => {
                         id="email"
                         name="email"
                         placeholder="請輸入Email"
+                        value={email}
+                        onChange={(event) => {
+                            setEmail(event.target.value);
+                        }}
                         required
                     />
                     <label htmlFor="password">密碼：</label>
@@ -20,6 +55,10 @@ const Register = ({ closeRegister }) => {
                         id="password"
                         name="password"
                         placeholder="請輸入密碼"
+                        value={password}
+                        onChange={(event) => {
+                            setPassword(event.target.value);
+                        }}
                         required
                     />
                     <label htmlFor="secondpassword">再次確認密碼：</label>
@@ -28,24 +67,25 @@ const Register = ({ closeRegister }) => {
                         id="secondpassword"
                         name="secondpassword"
                         placeholder="請再次輸入密碼"
+                        value={secondPassword}
+                        onChange={(event) => {
+                            setSecondPassword(event.target.value);
+                        }}
                         required
                     />
                     <label htmlFor="name">姓名：</label>
                     <input
                         type="text"
-                        id="name"
-                        name="name"
+                        id="employeename"
+                        name="employeename"
                         placeholder="輸入姓名"
+                        value={employeename}
+                        onChange={(event) => {
+                            setEmployeename(event.target.value);
+                        }}
                         required
                     />
-                    <label htmlFor="phonenumber">行動電話：</label>
-                    <input
-                        type="text"
-                        id="phonenumber"
-                        name="phonenumber"
-                        placeholder="09xxxxxxxx"
-                        required
-                    />
+                    {error && <p className={register.error}>{error}</p>}
                     <button className={register.registerbtn} type="submit">
                         送出
                     </button>
@@ -63,3 +103,4 @@ const Register = ({ closeRegister }) => {
 };
 
 export default Register;
+
