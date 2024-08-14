@@ -1,5 +1,5 @@
-import React from 'react';
-import footer from '../styles/Footer.module.css';
+import React from "react";
+import footer from "../styles/Footer.module.css";
 
 const Footer = () => {
     return (
@@ -32,7 +32,7 @@ const Footer = () => {
                             </a>
                         </li>
                         <li>
-                            <a className={footer.lista} href=" ">
+                            <a className={footer.lista} href="/Rent ">
                                 租車服務
                             </a>
                         </li>

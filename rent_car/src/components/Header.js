@@ -1,6 +1,5 @@
-import React from 'react';
-import header from '../styles/Header.module.css';
-import { Outlet, Link } from 'react-router-dom';
+import React from "react";
+import header from "../styles/Header.module.css";
 
 const Header = () => {
     return (

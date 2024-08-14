@@ -1,8 +1,8 @@
-import React from 'react';
-import '../styles/Navbar.css';
+import React from "react";
+import nav from "../styles/Navbar.module.css";
 const Navbar = () => {
     return (
-        <nav>
+        <nav className={nav.nav}>
             <ul>
                 <li>線上繳款</li>
                 <li>會員註冊</li>
