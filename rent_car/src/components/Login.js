@@ -18,13 +18,13 @@ const Login = ({ closeLogin }) => {
                 {
                     console.log(res.data);
 
-                    if (res.data.message == "信箱不存在!") 
+                    if (res.data.message == "Email not exits") 
                     {
-                        alert("Email not exits");
+                        alert("信箱不存在!");
                     } 
-                    else if(res.data.message == "登入成功!")
+                    else if(res.data.message == "Login Success")
                     { 
-                
+                    alert("登入成功");
                     navigate('/HomePageIn');
                     } 
                     else 

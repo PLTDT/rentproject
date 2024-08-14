@@ -7,6 +7,7 @@ const PageHeaderIn = () => {
 
     const handleLogout = () => {
         // 這裡可以添加登出邏輯，比如清理 session 或 token 等
+        alert("登出成功");
         navigate("/HomePage"); // 導航到 HomePage
     };
 
