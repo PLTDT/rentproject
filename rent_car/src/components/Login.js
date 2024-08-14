@@ -18,18 +18,18 @@ const Login = ({ closeLogin }) => {
                 {
                     console.log(res.data);
 
-                    if (res.data.message == "Email not exits") 
+                    if (res.data.message == "信箱不存在!") 
                     {
                         alert("Email not exits");
                     } 
-                    else if(res.data.message == "Login Success")
+                    else if(res.data.message == "登入成功!")
                     { 
                 
                     navigate('/HomePageIn');
                     } 
                     else 
                     { 
-                alert("Incorrect Email and Password not match");
+                alert("帳號或密碼不匹配!");
                 }
             }, fail => {
             console.error(fail); // Error!
