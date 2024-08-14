@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import HomePage from './pages/HomePage';
 import About from './pages/About';
 import Rent from './pages/RentPage';
+import HomePageIn from './pages/HomePageIn';
+import AboutIn from './pages/AboutIn';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +17,8 @@ root.render(
             <Route path="/HomePage" element={<HomePage />} />
             <Route path="/About" element={<About />} />
             <Route path="/Rent" element={<Rent />} />
+            <Route path="/HomePageIn" element={<HomePageIn />} />
+            <Route path="/AboutIn" element={<AboutIn />} />
         </Routes>
     </Router>,
 );

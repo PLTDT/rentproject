@@ -10,7 +10,7 @@ const Register = ({ closeRegister }) => {
     const [secondPassword, setSecondPassword] = useState("");
     const [error, setError] = useState("");
 
-    async function save(event) {
+    async function registeraction(event) {
         event.preventDefault();
         
         // 驗證密碼是否匹配
@@ -20,7 +20,7 @@ const Register = ({ closeRegister }) => {
         }
 
         try {
-            await axios.post("http://localhost:8080/api/v1/employee/save", {
+            await axios.post("http://localhost:8080/api/v1/employee/registeraction", {
                 employeename: employeename,
                 email: email,
                 password: password,
@@ -35,7 +35,7 @@ const Register = ({ closeRegister }) => {
     return (
         <div className={register.modal}>
             <div className={register.form_container}>
-                <form className={register.centered_form} onSubmit={save}>
+                <form className={register.centered_form} onSubmit={registeraction}>
                     <h2>註冊</h2>
                     <label htmlFor="email">Email：</label>
                     <input
