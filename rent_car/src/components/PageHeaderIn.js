@@ -14,7 +14,7 @@ const PageHeaderIn = () => {
     return (
         <header className={pheader.header}>
             <div className={pheader.banner}>
-                <a href="/HomePage ">
+                <a href="/HomePageIn ">
                     <img
                         src={require("../assets/logo.png")}
                         alt="背景圖"
