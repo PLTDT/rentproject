@@ -5,6 +5,7 @@ import Register from "./Register"; // 引入 Register 元件
 
 const PageHeader = () => {
     const [showLogin, setShowLogin] = useState(false);
+    const [showRegister, setShowRegister] = useState(false);
 
     const openLogin = () => {
         setShowLogin(true);
@@ -14,8 +15,6 @@ const PageHeader = () => {
         setShowLogin(false);
     };
 
-    const [showRegister, setShowRegister] = useState(false);
-
     const openRegister = () => {
         setShowRegister(true);
     };
@@ -24,10 +23,17 @@ const PageHeader = () => {
         setShowRegister(false);
     };
 
+    const handleServiceClick = (event) => {
+        // 阻止默認的連結行為
+        event.preventDefault();
+        // 使用 alert 來提示用戶
+        alert("請先登入");
+    };
+
     return (
         <header className={pheader.header}>
             <div className={pheader.banner}>
-                <a href="/HomePage ">
+                <a href="/HomePage">
                     <img
                         src={require("../assets/logo.png")}
                         alt="背景圖"
@@ -37,19 +43,19 @@ const PageHeader = () => {
                 <div className={pheader.navbar}>
                     <ul>
                         <li className={pheader.menu}>
-                            <a href="/HomePage ">首頁</a>
+                            <a href="/HomePage">首頁</a>
                         </li>
                         <li className={pheader.menu}>
-                            <a href="/About ">關於我們</a>
+                            <a href="/About">關於我們</a>
                         </li>
                         <li className={pheader.menu}>
-                            <a href="/Rent ">租車服務</a>
+                            <a href="/Rent" onClick={handleServiceClick}>租車服務</a>
                         </li>
                         <li className={pheader.menu}>
-                            <a href=" ">車款介紹</a>
+                            <a href="#">車款介紹</a>
                         </li>
                         <li className={pheader.menu}>
-                            <a href=" ">服務據點</a>
+                            <a href="#">服務據點</a>
                         </li>
                     </ul>
                     <div className={pheader.signbtdiv}>
@@ -74,10 +80,11 @@ const PageHeader = () => {
                     </div>
                 </div>
             </div>
-            {showLogin && <Login closeLogin={closeLogin} />} {/* 顯示彈窗 */}
-            {showRegister && <Register closeRegister={closeRegister} />}
+            {showLogin && <Login closeLogin={closeLogin} />} {/* 顯示登入彈窗 */}
+            {showRegister && <Register closeRegister={closeRegister} />} {/* 顯示註冊彈窗 */}
         </header>
     );
 };
 
 export default PageHeader;
+
