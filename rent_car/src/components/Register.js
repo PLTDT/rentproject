@@ -25,7 +25,7 @@ const Register = ({ closeRegister }) => {
                 email: email,
                 password: password,
             });
-            alert("Employee Registration Successfully");
+            alert("註冊成功，歡迎加入我們！");
             closeRegister(); // 提交成功後關閉註冊表單
         } catch (err) {
             alert("註冊過程中出錯，請稍後再試。");
