@@ -11,7 +11,7 @@ const Login = ({ closeLogin }) => {
     async function loginaction(event) {
         event.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8080/api/v1/employee/loginaction", {
+            const response = await axios.post("http://tongbro.ddns.net:8080/api/v1/employee/loginaction", {
                 email: email,
                 password: password,
             });
