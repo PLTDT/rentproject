@@ -1,0 +1,25 @@
+.ordersTable {
+    width: 100%;
+    border-collapse: collapse;
+    color: black;
+  }
+  
+  .ordersTable th, .ordersTable td {
+    border-bottom: 1px solid black;
+    padding: 8px;
+    color: black;
+  }
+  
+  .button {
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #333;
+  }
+  

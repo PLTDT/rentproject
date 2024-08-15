@@ -1,0 +1,39 @@
+.membershipDashboard {
+  padding: 20px;
+}
+
+.membershipTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px; /* 设置最小宽度，以防止表格过于压缩 */
+}
+
+.membershipTable th, .membershipTable td {
+  border-bottom: 1px solid black;  /* 只保留底部的边框线 */
+  padding: 8px;
+  color: black !important;  /* 强制文字颜色为黑色 */
+  text-align: left;
+}
+
+h2 {
+  color: black; /* 设置 h2 元素的颜色为黑色 */
+}
+
+.button {
+  width: 80px; /* 设置按钮的固定宽度 */
+  padding: 5px 10px;
+  margin-right: 10px;
+  background-color: black; /* 设置按钮背景颜色为黑色 */
+  color: white; /* 设置按钮文字颜色为白色 */
+  border: none; /* 移除默认边框 */
+  cursor: pointer; /* 设置鼠标移到按钮上时显示手型光标 */
+  font-size: 12px; /* 调整字体大小 */
+}
+
+.button:hover {
+  background-color: #333; /* 当鼠标悬停时将背景变为更亮的黑色 */
+}
+
+.button:last-child {
+  margin-right: 0;
+}

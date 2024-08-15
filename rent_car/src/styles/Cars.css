@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700&display=swap');
+
+body {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 30px;
+  padding: 3rem 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #E0F7FA;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-weight: normal;
+  
+}
+
+h1 {
+  margin: 0 0 4rem;
+  text-align: center;
+  font-size: 1.6em;
+  color: #00796B;
+  font-size: 50px;
+}
+
+.wrap-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: 32%;
+  max-width: 100%;
+  margin: 0 0 4rem;
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.25);
+  background-color: #b0bcc1;
+}
+
+.wrap-image {
+  position: relative;
+}
+
+.wrap-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.contents {
+  padding: 1rem;
+}
+
+.contents h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125em;
+  color: #fff;
+}
+
+.contents .text {
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  font-size: 0.9em;
+}
+
+@media all and (max-width: 768px) {
+  .card {
+    width: 49%;
+    margin-bottom: 3rem;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .card {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+}

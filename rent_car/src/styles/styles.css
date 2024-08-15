@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+  }
+  
+  .ant-layout-header {
+    background-color: #001529;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .ant-layout-content {
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ant-table {
+    background-color: white;
+  }
+  
+  .ant-form-item {
+    margin-bottom: 20px;
+  }
+  
+  .ant-input-search {
+    max-width: 300px;
+  }
+  
+  .ant-btn-primary {
+    background-color: #1890ff;
+    border-color: #1890ff;
+  }
+  
