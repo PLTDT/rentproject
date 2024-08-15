@@ -11,17 +11,18 @@ const Login = ({ closeLogin }) => {
     async function loginaction(event) {
         event.preventDefault();
         try {
-            const response = await axios.post("http://tongbro.ddns.net:8080/api/v1/employee/loginaction", {
+            const response = await axios.post("http://localhost:8080/api/v1/employee/loginaction", {
                 email: email,
                 password: password,
             });
-
+    
             console.log(response.data);
-
+    
             if (response.data.message === "Email not exists") {
                 alert("信箱不存在!");
             } else if (response.data.message === "Login Success") {
                 localStorage.setItem('token', response.data.token); // 儲存 token
+                localStorage.setItem('user', JSON.stringify(response.data.user)); // 儲存 user 資訊
                 alert("登入成功");
                 navigate('/HomePageIn'); // 導航到受保護的頁面
             } else {
@@ -31,6 +32,7 @@ const Login = ({ closeLogin }) => {
             alert("登入失敗: " + err.message);
         }
     }
+    
 
     return (
         <div className={login.modal}>

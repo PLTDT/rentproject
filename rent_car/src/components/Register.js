@@ -20,7 +20,7 @@ const Register = ({ closeRegister }) => {
         }
 
         try {
-            await axios.post("http://tongbro.ddns.net:8080/api/v1/employee/registeraction", {
+            await axios.post("http://localhost:8080/api/v1/employee/registeraction", {
                 employeename: employeename,
                 email: email,
                 password: password,

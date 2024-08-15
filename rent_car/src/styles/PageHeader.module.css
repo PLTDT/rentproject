@@ -111,3 +111,15 @@
   text-decoration: none; /* 去除下劃線 */
   color: #fff; /* 顏色 */
 }
+
+.welcome {
+  position: absolute;
+  left:10%;
+  border: 2px solid #009688;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.username {
+
+}
