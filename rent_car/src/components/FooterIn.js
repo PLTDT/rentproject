@@ -2,14 +2,6 @@ import React from "react";
 import footer from "../styles/Footer.module.css";
 
 const Footer = () => {
-
-    const handleServiceClick = (event) => {
-        // 阻止默認的連結行為
-        event.preventDefault();
-        // 使用 alert 來提示用戶
-        alert("請先登入");
-    };
-
     return (
         <footer className={footer.footer}>
             <div className={footer.container}>
@@ -30,17 +22,17 @@ const Footer = () => {
                     <h3>快速連結</h3>
                     <ul className={footer.list}>
                         <li>
-                            <a className={footer.lista} href="/HomePage ">
+                            <a className={footer.lista} href="/HomePageIn ">
                                 首頁
                             </a>
                         </li>
                         <li>
-                            <a className={footer.lista} href="/About ">
+                            <a className={footer.lista} href="/AboutIn ">
                                 關於我們
                             </a>
                         </li>
                         <li>
-                            <a className={footer.lista} href="/Rent " onClick={handleServiceClick}>
+                            <a className={footer.lista} href="/Rent ">
                                 租車服務
                             </a>
                         </li>

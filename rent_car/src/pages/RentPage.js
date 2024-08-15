@@ -1,14 +1,14 @@
 import React from "react";
-import PageHeader from "../components/PageHeader";
+import PageHeaderIn from "../components/PageHeaderIn";
 import Rent from "../components/Rent";
-import Footer from "../components/Footer";
+import FooterIn from "../components/FooterIn";
 
 const RentPage = () => {
     return (
         <div>
-            <PageHeader />
+            <PageHeaderIn />
             <Rent />
-            <Footer />
+            <FooterIn />
         </div>
     );
 };
