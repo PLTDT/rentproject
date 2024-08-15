@@ -9,6 +9,16 @@ const Register = ({ closeRegister }) => {
     const [password, setPassword] = useState("");
     const [secondPassword, setSecondPassword] = useState("");
     const [error, setError] = useState("");
+    
+    async function checkEmailExists(email) {
+        try {
+            const response = await axios.get(`http://tongbro.ddns.net:8080/api/v1/employee/check-email?email=${email}`);
+            return response.data.exists;
+        } catch (err) {
+            console.error("Email check failed", err);
+            return false;
+        }
+    }
 
     async function registeraction(event) {
         event.preventDefault();
@@ -16,6 +26,13 @@ const Register = ({ closeRegister }) => {
         // 驗證密碼是否匹配
         if (password !== secondPassword) {
             setError("密碼與再次確認密碼不匹配！");
+            return;
+        }
+
+        // 檢查 email 是否已被註冊
+        const emailExists = await checkEmailExists(email);
+        if (emailExists) {
+            setError("該 email 已被註冊！");
             return;
         }
 
@@ -103,4 +120,3 @@ const Register = ({ closeRegister }) => {
 };
 
 export default Register;
-
