@@ -16,7 +16,7 @@ const Register = ({ closeRegister }) => {
     async function checkEmailExists(email) {
         try {
             // 發送 GET 請求檢查 email 是否已被註冊
-            const response = await axios.get(`http://localhost:8080/api/v1/employee/check-email?email=${email}`);
+            const response = await axios.get(`http://tongbro.ddns.net:8080/api/v1/employee/check-email?email=${email}`);
             return response.data.exists; // 返回 email 是否存在的狀態
         } catch (err) {
             console.error("Email check failed", err); // 錯誤處理
@@ -43,7 +43,7 @@ const Register = ({ closeRegister }) => {
 
         try {
             // 發送 POST 請求進行註冊
-            await axios.post("http://localhost:8080/api/v1/employee/registeraction", {
+            await axios.post("http://tongbro.ddns.net:8080/api/v1/employee/registeraction", {
                 employeename: employeename,
                 email: email,
                 password: password,
