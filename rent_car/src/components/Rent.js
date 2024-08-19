@@ -16,8 +16,8 @@ const CarBookingForm = () => {
     const [carbrand, setCarbrand] = useState(""); // 訂購車型
     const [passenger, setPassenger] = useState(""); // 乘車人數
     const [couponcode, setCouponcode] = useState(""); // 折價券號
-    const [customername, setCustomername] = useState(cname);
-    const [customeremail, setCustomeremail] = useState(cemail);
+    const [customername] = useState(cname); // 貴賓姓名
+    const [customeremail] = useState(cemail); // 貴賓信箱
     const [error, setError] = useState(""); // 錯誤訊息
 
     // 處理表單提交事件
@@ -36,7 +36,7 @@ const CarBookingForm = () => {
                 passenger,
                 couponcode,
                 customername,
-                customeremail
+                customeremail,
             });
 
             console.log("Response:", response);

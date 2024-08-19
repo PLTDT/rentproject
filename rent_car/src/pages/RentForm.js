@@ -7,7 +7,7 @@ import PageHeaderIn from '../components/PageHeaderIn';
 
 const RentForm = () => {
     const [data, setData] = useState(null); // State to store fetched data
-    const apiUrl = 'http://Localhost:8080/api/v1/rentform/getrentcar';
+    const apiUrl = 'http://localhost:8080/api/v1/rentform/getrentcar';
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -44,7 +44,7 @@ const RentForm = () => {
                         </thead>
                         <tbody className={rent.form_tbody}>
                             {data && data.map((item) => (
-                                <tr key={item.id}>
+                                <tr key={item.formid}>
                                     <td className={rent.form_tbody}>{item.rentplace}</td>
                                     <td className={rent.form_tbody}>{item.returnplace}</td>
                                     <td className={rent.form_tbody}>{item.rentdate}</td>
@@ -54,7 +54,7 @@ const RentForm = () => {
                                     <td className={rent.form_tbody}>{item.couponcode}</td>  
                                     <td className={rent.form_tbody}>{item.customername}</td>
                                     <td className={rent.form_tbody}>{item.customeremail}</td>
-                                    <button className={rent.button}>刪除</button>
+                                    <td><button className={rent.button}>刪除</button></td>
                                 </tr>
                             ))}
                         </tbody>
