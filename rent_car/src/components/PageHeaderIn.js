@@ -1,15 +1,19 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom"; // 引入 useNavigate 和 Link
+import { useNavigate, Link } from "react-router-dom";
 import pheader from "../styles/PageHeader.module.css";
 
 const PageHeaderIn = () => {
-    const navigate = useNavigate(); // 初始化 useNavigate
+    const navigate = useNavigate();
+
+    // 從 localStorage 中取得用戶資訊
+    const user = JSON.parse(localStorage.getItem('user'));
 
     const handleLogout = () => {
         // 清除登入狀態
-        localStorage.removeItem('token'); // 移除 token
+        localStorage.removeItem('token');
+        localStorage.removeItem('user'); // 移除用戶資訊
         alert("登出成功");
-        navigate("/HomePage"); // 導航到 HomePage
+        navigate("/HomePage");
     };
 
     return (
@@ -34,17 +38,25 @@ const PageHeaderIn = () => {
                             <Link to="/Rent">租車服務</Link>
                         </li>
                         <li className={pheader.menu}>
+                            <Link to="/RentHistory">訂單紀錄</Link>
+                        </li>
+                        <li className={pheader.menu}>
                             <Link to="#">車款介紹</Link> {/* 使用 `#` 來處理空鏈接 */}
                         </li>
                         <li className={pheader.menu}>
                             <Link to="#">服務據點</Link> {/* 使用 `#` 來處理空鏈接 */}
                         </li>
                     </ul>
+                    <div className={pheader.welcome}>
+                    {user && (
+                                <span className={pheader.username}>歡迎 ~ {user.employeename}</span>
+                            )}
+                    </div>       
                     <div className={pheader.signbtdiv}>
                         <div className={pheader.signdiv}>
                             <button
                                 className={pheader.signbt}
-                                onClick={handleLogout} // 綁定登出事件
+                                onClick={handleLogout}
                             >
                                 <span className={pheader.sisp}></span>
                                 登出
@@ -58,7 +70,3 @@ const PageHeaderIn = () => {
 };
 
 export default PageHeaderIn;
-
-
-
-

@@ -10,6 +10,7 @@ import HomePageIn from './pages/HomePageIn';
 import AboutIn from './pages/AboutIn';
 import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
+import RentForm from './pages/RentForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
             <Route path="/HomePageIn" element={<PrivateRoute element={<HomePageIn />} />} />
             <Route path="/AboutIn" element={<PrivateRoute element={<AboutIn />} />} />
             <Route path="/Rent" element={<PrivateRoute element={<RentPage />} />} />
+            <Route path="/RentHistory" element={<PrivateRoute element={<RentForm />}/>} />
         </Routes>
     </Router>
 );
