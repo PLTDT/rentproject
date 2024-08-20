@@ -8,15 +8,18 @@ import Section1 from './components/Section1';
 import Cars from './cars';
 import Backstage from './components/Backstage';
 import Membership from './components/Membership';
+import EmployeesInfo from './components/EmployeesInfo';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    
-   
-   <Backstage/>
-   
-  </React.StrictMode>
+<Router>
+      <Routes>
+        <Route path="/backstage" element={<Backstage/>} />
+        <Route path="/Membership" element={<Membership  />} />
+        <Route path="/EmployeesInfo" element={<EmployeesInfo />} />
+      </Routes>
+    </Router>
 );
 
 // If you want to start measuring performance in your app, pass a function

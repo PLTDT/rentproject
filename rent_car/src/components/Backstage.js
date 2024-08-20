@@ -1,40 +1,60 @@
 import React, { useState, useEffect } from 'react';
-import backstage from '../styles/Backstage.module.css';  // 引入 CSS 模塊
+import { useNavigate } from 'react-router-dom';
+import backstage from '../styles/Backstage.module.css';
 
 const Backstage = () => {
-  const [activeSection, setActiveSection] = useState('orders'); // 用於追踪當前選中的部分（如訂單、會員等）
-  const [orders, setOrders] = useState([]); // 保存從 API 獲取的訂單數據
+  const [activeSection, setActiveSection] = useState('orders');
+  const [orders, setOrders] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(''); // 保存使用者輸入的搜尋詞
+  const [filteredOrders, setFilteredOrders] = useState([]); // 保存篩選後的訂單
+  const navigate = useNavigate();
 
-  // 使用 useEffect 鉤子從 Spring Boot API 獲取數據
   useEffect(() => {
     if (activeSection === 'orders') {
       fetch('http://localhost:8080/daniel/getallorders')
         .then(response => {
           if (!response.ok) {
-            throw new Error('Network response was not ok'); // 如果響應不成功，拋出錯誤
+            throw new Error('Network response was not ok');
           }
-          return response.json(); // 將響應轉換為 JSON
+          return response.json();
         })
         .then(data => {
-          console.log(data); // 打印數據以檢查訂單金額
-          setOrders(data); // 將獲取的訂單數據設置到狀態中
+          console.log(data);
+          setOrders(data);
+          setFilteredOrders(data); // 初始化時顯示所有訂單
         })
-        .catch(error => console.error('Error fetching data:', error)); // 捕獲並打印錯誤
+        .catch(error => console.error('Error fetching data:', error));
     }
-  }, [activeSection]); // 當 activeSection 改變時重新執行該效果
+  }, [activeSection]);
 
-  // 根據當前選中的部分渲染對應的內容
+  const handleSearch = () => {
+    const results = orders.filter(order =>
+      order.訂單編號.includes(searchTerm) || order.客戶名稱.includes(searchTerm) // 根據訂單編號或客戶名稱進行篩選
+    );
+    setFilteredOrders(results); // 更新篩選後的訂單
+  };
+
   const renderContent = () => {
     switch (activeSection) {
       case 'members':
-        return <h2>會員資料</h2>; // 會員資料的內容
+        return <h2>會員資料</h2>;
       case 'employees':
-        return <h2>員工資料</h2>; // 員工資料的內容
+        return <h2>員工資料</h2>;
       case 'orders':
       default:
         return (
-          <>
+          <div className={backstage.ordersdashboard}>
             <h2>訂單資料</h2>
+            <div className={backstage.search_div}>
+              <button onClick={handleSearch}>訂單搜尋</button> {/* 搜尋按鈕 */}
+              <input 
+                type="text" 
+                className='input' 
+                placeholder='請輸入訂單編號或會員名稱' 
+                value={searchTerm} 
+                onChange={e => setSearchTerm(e.target.value)} // 更新搜尋詞
+              />
+            </div>
             <table className={backstage.ordersTable}>
               <thead>
                 <tr>
@@ -47,22 +67,32 @@ const Backstage = () => {
                 </tr>
               </thead>
               <tbody>
-                  {orders.map((order) => (
-                    <tr key={order.訂單編號}>
-                      <td>{order.訂單編號}</td>
-                      <td>{order.客戶名稱}</td>
-                      <td>{order.訂單日期}</td>
-                      <td>{order.總金額}</td> {/* 直接顯示訂單金額 */}
-                      <td>{order.status}</td>
-                      <td>
-                        <button className={backstage.button}>View</button> {/* 查看按鈕 */}
-                        <button className={backstage.button}>Edit</button> {/* 編輯按鈕 */}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
+                {filteredOrders.map((order) => (
+                  <tr key={order.訂單編號}>
+                    <td>{order.訂單編號}</td>
+                    <td>{order.客戶名稱}</td>
+                    <td>{order.訂單日期}</td>
+                    <td>{order.總金額}</td>
+                    <td>{order.狀態}</td>
+                    <td>
+                      <button
+                        className={backstage.button}
+                        onClick={() => navigate(`/order/${order.訂單編號}`)}
+                      >
+                        View
+                      </button>
+                      <button
+                        className={backstage.button}
+                        onClick={() => navigate(`/order/edit/${order.訂單編號}`)}
+                      >
+                        Edit
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
-          </>
+          </div>
         );
     }
   };
@@ -72,31 +102,44 @@ const Backstage = () => {
       <aside>
         <ul>
           <li>
-            <a
-              href="#"
+            <button
               className={activeSection === 'members' ? backstage.active : ''}
-              onClick={() => setActiveSection('members')}
+              onClick={() => {
+                setActiveSection('members');
+                navigate('/Membership');
+              }}
             >
               會員資料
-            </a>
+            </button>
           </li>
           <li>
-            <a
-              href="#"
-              className={activeSection === 'employees' ? backstage.active : ''}
-              onClick={() => setActiveSection('employees')}
+            <button
+              className={activeSection === 'employeeInfo' ? backstage.active : ''}
+              onClick={() => {
+                setActiveSection('employeeInfo')
+                navigate('/employeesInfo')
+              }}
             >
-              員工資料
-            </a>
+              員工資訊
+            </button>
           </li>
           <li>
-            <a
-              href="#"
+            <button
               className={activeSection === 'orders' ? backstage.active : ''}
               onClick={() => setActiveSection('orders')}
             >
               訂單資料
-            </a>
+            </button>
+          </li>
+          <li>
+            <button
+              className={activeSection === 'home' ? backstage.active : ''}
+              onClick={() => {
+                window.location.href = 'http://tongbro.ddns.net/HomePage';
+              }}
+            >
+              回首頁
+            </button>
           </li>
         </ul>
       </aside>

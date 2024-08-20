@@ -1,22 +1,71 @@
+/* Membership.module.css */
+
 .membershipDashboard {
+  padding: 20px; /* 与 .orders-dashboard 一致 */
+  padding-left: 100px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* 确保内容区域占满整个屏幕高度 */
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100vh;
+  background-color: #c0bebe;
   padding: 20px;
+  color: black !important;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+aside ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+aside ul li {
+  margin-bottom: 20px;
+}
+
+aside ul li a {
+  text-decoration: none;
+  color: black !important;
+  font-weight: bold;
+}
+
+aside ul li a.active {
+  color: #d4e9e7;
 }
 
 .membershipTable {
   width: 100%;
   border-collapse: collapse;
   min-width: 800px; /* 设置最小宽度，以防止表格过于压缩 */
+  background-color:rgb(227, 221, 216)
 }
 
-.membershipTable th, .membershipTable td {
-  border-bottom: 1px solid black;  /* 只保留底部的边框线 */
-  padding: 8px;
-  color: black !important;  /* 强制文字颜色为黑色 */
-  text-align: left;
+/* Membership.module.css */
+
+.membershipTable th,
+.membershipTable td {
+  border-bottom: 1px solid black; /* 与 Backstage 保持一致的底部边框 */
+  padding: 8px 23px; /* 统一单元格的内边距 */
+  color: black !important; /* 强制设置文字颜色为黑色 */
+  text-align: left; /* 文字左对齐 */
 }
+
 
 h2 {
   color: black; /* 设置 h2 元素的颜色为黑色 */
+  text-align: center;
+  font-size: 20px;
+  padding: 30px 23px;
+  font-weight: bold;
 }
 
 .button {
@@ -36,4 +85,15 @@ h2 {
 
 .button:last-child {
   margin-right: 0;
+}
+/* 样式已包含其他部分，只需专注于 active 样式 */
+.active {
+  color: #d4e9e7; /* 使其与 Backstage 的 active 样式一致 */
+  border-bottom: 2px solid #000; /* 同样添加底线样式 */
+}
+.search_div {
+  content: "";
+  display: block;
+  padding-bottom:10px;
+  border-bottom: 2px solid #000; /* 添加底線，顏色和粗細可以自行調整 */
 }
