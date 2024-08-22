@@ -15,8 +15,18 @@ const Register = ({ closeRegister }) => {
     // 檢查 email 是否已存在的函數
     async function checkEmailExists(email) {
         try {
+<<<<<<< HEAD
             const encodedEmail = encodeURIComponent(email); // 編碼 email 以便於在 URL 中使用
             const response = await axios.get(`http://localhost:8080/api/v1/employee/check-email?email=${encodedEmail}`);
+=======
+            // 確保 email 參數被正確編碼
+            const encodedEmail = encodeURIComponent(email);
+            
+            // 發送 GET 請求檢查 email 是否已被註冊
+            const response = await axios.get(`http://tongbro.ddns.net:8080/api/v1/employee/check-email?email=${encodedEmail}`);
+            
+            // 確保 response.data 的結構符合預期
+>>>>>>> 59829ba46d9ad53dec7ca6ea44cd48e343388796
             if (response.data && typeof response.data.exists === 'boolean') {
                 return response.data.exists; // 返回 email 是否存在的布林值
             } else {
@@ -47,8 +57,13 @@ const Register = ({ closeRegister }) => {
         }
 
         try {
+<<<<<<< HEAD
             // 發送註冊請求到後端
             await axios.post("http://localhost:8080/api/v1/employee/registeraction", {
+=======
+            // 發送 POST 請求進行註冊
+            await axios.post("http://tongbro.ddns.net:8080/api/v1/employee/registeraction", {
+>>>>>>> 59829ba46d9ad53dec7ca6ea44cd48e343388796
                 employeename: employeename,
                 email: email,
                 password: password,
