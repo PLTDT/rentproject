@@ -7,7 +7,7 @@ import PageHeaderIn from '../components/PageHeaderIn';
 
 const RentForm = () => {
     const [data, setData] = useState(null); // State to store fetched data
-    const apiUrl = 'http:/tongbro.ddns.net:8080/api/v1/rentform/getrentcar';
+    const apiUrl = 'http://tongbro.ddns.net:8080/api/v1/rentform/getrentcar';
     useEffect(() => {
         const fetchData = async () => {
             try {
