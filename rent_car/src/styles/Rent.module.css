@@ -153,3 +153,6 @@
 .button:hover{
     background-color: #979797;
 }
+.form_none{
+    display: none;
+}
