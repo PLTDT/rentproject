@@ -25,9 +25,14 @@ const CarBookingForm = () => {
         event.preventDefault(); // 防止表單默認行為（刷新頁面）
         console.log("Submitting form...");
 
+        if (new Date(returndate) <= new Date(rentdate)) {
+            setError("還車日期必須晚於取車日期");
+            return;
+        }
+
         try {
             // 發送 POST 請求到後端 API
-            const response = await axios.post("http://localhost:8080/api/v1/rentform/rentcar", {
+            const response = await axios.post("http://tongbro.ddns.net:8080/api/v1/rentform/rentcar", {
                 rentplace,
                 returnplace,
                 rentdate,
@@ -65,8 +70,7 @@ const CarBookingForm = () => {
             setError(`發生錯誤，請稍後再試: ${errorMessage}`);
         }
     }
-    
-    
+
     // 返回表單 JSX
     return (
         <div className={rent.form_bg}>

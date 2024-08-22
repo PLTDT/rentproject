@@ -1,5 +1,5 @@
 import React from "react";
-import register from "../styles/Register.module.css";
+import register from "../styles/Register.module.css"; // 引入樣式模組
 import { useState } from "react";
 import axios from "axios";
 
@@ -11,7 +11,7 @@ const Register = ({ closeRegister }) => {
     const [password, setPassword] = useState(""); // 密碼
     const [secondPassword, setSecondPassword] = useState(""); // 再次確認密碼
     const [error, setError] = useState(""); // 錯誤訊息
-    
+
     // 檢查 email 是否已存在的函數
     async function checkEmailExists(email) {
         try {
@@ -19,50 +19,73 @@ const Register = ({ closeRegister }) => {
             const encodedEmail = encodeURIComponent(email);
             
             // 發送 GET 請求檢查 email 是否已被註冊
-            const response = await axios.get(`http://localhost:8080/api/v1/employee/check-email?email=${encodedEmail}`);
+            const response = await axios.get(`http://tongbro.ddns.net:8080/api/v1/employee/check-email?email=${encodedEmail}`);
             
             // 確保 response.data 的結構符合預期
             if (response.data && typeof response.data.exists === 'boolean') {
-                return response.data.exists; // 返回 email 是否存在的狀態
+                return response.data.exists; // 返回 email 是否存在的布林值
             } else {
                 console.error("Unexpected response structure", response.data);
-                return false;
+                return false; // 如果響應結構不符合預期，則返回 false
             }
         } catch (err) {
-            console.error("Email check failed", err.message); // 輸出具體錯誤信息
-            return false; // 發生錯誤時假設 email 不存在
+            console.error("Email check failed", err.message);
+            return false; // 如果檢查過程出錯，則返回 false
         }
     }
-    
 
     // 處理註冊表單提交的函數
     async function registeraction(event) {
-        event.preventDefault(); // 防止表單默認行為（刷新頁面）
+        event.preventDefault(); // 阻止表單的默認提交行為
         
         // 驗證密碼是否匹配
         if (password !== secondPassword) {
             setError("密碼與再次確認密碼不匹配！");
-            return;
+            return; // 如果密碼不匹配，設置錯誤訊息並返回
         }
 
         // 檢查 email 是否已被註冊
         const emailExists = await checkEmailExists(email);
         if (emailExists) {
             setError("該 email 已被註冊！");
-            return;
+            return; // 如果 email 已被註冊，設置錯誤訊息並返回
         }
 
         try {
             // 發送 POST 請求進行註冊
-            await axios.post("http://localhost:8080/api/v1/employee/registeraction", {
+            await axios.post("http://tongbro.ddns.net:8080/api/v1/employee/registeraction", {
                 employeename: employeename,
                 email: email,
                 password: password,
             });
-            alert("註冊成功，歡迎加入我們！"); // 註冊成功後顯示提示
-            closeRegister(); // 提交成功後關閉註冊表單
+            alert("註冊成功，歡迎加入我們！");
+            closeRegister(); // 註冊成功後關閉註冊表單
         } catch (err) {
-            alert("註冊過程中出錯，請稍後再試。"); // 錯誤處理
+            alert("註冊過程中出錯，請稍後再試。");
+        }
+    }
+
+    // 密碼變化處理函數
+    function handlePasswordChange(event) {
+        const newPassword = event.target.value;
+        setPassword(newPassword); // 更新密碼狀態
+
+        if (newPassword !== secondPassword) {
+            setError("密碼與再次確認密碼不匹配！");
+        } else {
+            setError(""); // 密碼匹配時清除錯誤訊息
+        }
+    }
+
+    // 再次確認密碼變化處理函數
+    function handleSecondPasswordChange(event) {
+        const newSecondPassword = event.target.value;
+        setSecondPassword(newSecondPassword); // 更新再次確認密碼狀態
+
+        if (password !== newSecondPassword) {
+            setError("密碼與再次確認密碼不匹配！");
+        } else {
+            setError(""); // 密碼匹配時清除錯誤訊息
         }
     }
 
@@ -73,7 +96,6 @@ const Register = ({ closeRegister }) => {
                 <form className={register.centered_form} onSubmit={registeraction}>
                     <h2>註冊</h2>
                     
-                    {/* Email 輸入欄位 */}
                     <label htmlFor="email">Email：</label>
                     <input
                         type="email"
@@ -81,13 +103,10 @@ const Register = ({ closeRegister }) => {
                         name="email"
                         placeholder="請輸入Email"
                         value={email}
-                        onChange={(event) => {
-                            setEmail(event.target.value);
-                        }}
+                        onChange={(event) => setEmail(event.target.value)}
                         required
                     />
                     
-                    {/* 密碼輸入欄位 */}
                     <label htmlFor="password">密碼：</label>
                     <input
                         type="password"
@@ -95,13 +114,10 @@ const Register = ({ closeRegister }) => {
                         name="password"
                         placeholder="請輸入密碼"
                         value={password}
-                        onChange={(event) => {
-                            setPassword(event.target.value);
-                        }}
+                        onChange={handlePasswordChange}
                         required
                     />
                     
-                    {/* 再次確認密碼輸入欄位 */}
                     <label htmlFor="secondpassword">再次確認密碼：</label>
                     <input
                         type="password"
@@ -109,13 +125,10 @@ const Register = ({ closeRegister }) => {
                         name="secondpassword"
                         placeholder="請再次輸入密碼"
                         value={secondPassword}
-                        onChange={(event) => {
-                            setSecondPassword(event.target.value);
-                        }}
+                        onChange={handleSecondPasswordChange}
                         required
                     />
                     
-                    {/* 姓名輸入欄位 */}
                     <label htmlFor="name">姓名：</label>
                     <input
                         type="text"
@@ -123,21 +136,16 @@ const Register = ({ closeRegister }) => {
                         name="employeename"
                         placeholder="輸入姓名"
                         value={employeename}
-                        onChange={(event) => {
-                            setEmployeename(event.target.value);
-                        }}
+                        onChange={(event) => setEmployeename(event.target.value)}
                         required
                     />
                     
-                    {/* 顯示錯誤訊息 */}
-                    {error && <p className={register.error}>{error}</p>}
+                    {error && <p className={register.error}>{error}</p>} {/* 顯示錯誤訊息 */}
                     
-                    {/* 提交按鈕 */}
                     <button className={register.registerbtn} type="submit">
                         送出
                     </button>
                     
-                    {/* 關閉按鈕 */}
                     <button
                         className={register.closebtn}
                         type="button"
