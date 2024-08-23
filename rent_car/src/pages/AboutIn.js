@@ -19,7 +19,7 @@ const AboutIn = () => {
                 }
 
                 // 驗證 token 是否有效
-                const validateResponse = await axios.get('http://localhost:8080/api/v1/employee/validateToken', {
+                const validateResponse = await axios.get('http://tongbro.ddns.net:8080/api/v1/employee/validateToken', {
                     headers: {
                         Authorization: `Bearer ${token}`, // 設置 Authorization 標頭
                     },
@@ -28,7 +28,7 @@ const AboutIn = () => {
                 if (validateResponse.status === 200) {
                     // 如果 token 有效，重置 token 的過期時間
                     try {
-                        const refreshResponse = await axios.post('http://localhost:8080/api/v1/employee/resetToken?timestamp=' + new Date().getTime(), {}, {
+                        const refreshResponse = await axios.post('http://tongbro.ddns.net:8080/api/v1/employee/resetToken?timestamp=' + new Date().getTime(), {}, {
                             headers: {
                                 Authorization: `Bearer ${token}`, // 設置 Authorization 標頭
                             },
