@@ -37,12 +37,22 @@ const Footer = () => {
                             </a>
                         </li>
                         <li>
+                            <a className={footer.lista} href="/MemberInfoPage ">
+                                會員資料
+                            </a>
+                        </li>
+                        <li>
+                            <a className={footer.lista} href="/RentHistory ">
+                                訂單紀錄
+                            </a>
+                        </li>
+                        <li>
                             <a className={footer.lista} href=" ">
                                 車款介紹
                             </a>
                         </li>
                         <li>
-                            <a className={footer.lista} href=" ">
+                            <a className={footer.lista} href="/ServiceAddressPageIn ">
                                 服務據點
                             </a>
                         </li>
@@ -75,7 +85,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className={footer.bottomBar}>
-                <p>&copy; 2024 your company. All rights reserved</p>
+                <p>&copy; 2024 PLTDT. All rights reserved</p>
             </div>
         </footer>
     );
