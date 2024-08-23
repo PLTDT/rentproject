@@ -19,14 +19,14 @@ const RentPage = () => {
                 }
 
                 // 驗證 token 是否有效
-                await axios.get('http://localhost:8080/api/v1/employee/validateToken', {
+                await axios.get('http://tongbro.ddns.net:8080/api/v1/employee/validateToken', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                 });
 
                 // 重置 token 的過期時間
-                const response = await axios.post('http://localhost:8080/api/v1/employee/resetToken?timestamp=' + new Date().getTime(), {}, {
+                const response = await axios.post('http://tongbro.ddns.net:8080/api/v1/employee/resetToken?timestamp=' + new Date().getTime(), {}, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

@@ -13,7 +13,7 @@ const MemberInfo = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/v1/memberinfo/getmemberinfo?email=${cemail}`);
+                const response = await axios.get(`http://tongbro.ddns.net:8080/api/v1/memberinfo/getmemberinfo?email=${cemail}`);
                 console.log('API response:', response.data); // 打印 API 返回的數據
                 const result = Array.isArray(response.data) ? response.data : [response.data];
                 setData(result);
