@@ -50,7 +50,7 @@ const Footer = () => {
                             </a>
                         </li>
                         <li>
-                            <a className={footer.lista} href=" ">
+                            <a className={footer.lista} href="/ServiceAddressPage ">
                                 服務據點
                             </a>
                         </li>
@@ -83,7 +83,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className={footer.bottomBar}>
-                <p>&copy; 2024 your company. All rights reserved</p>
+                <p>&copy; 2024 PLTDT. All rights reserved</p>
             </div>
         </footer>
     );

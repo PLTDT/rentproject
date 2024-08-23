@@ -12,6 +12,9 @@ import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
 import RentForm from './pages/RentForm';
 import Pay from './components/pay';
+import MemberInfoPage from './pages/MemberInfoPage';
+import ServiceAddressPage from './pages/ServiceAddressPage';
+import ServiceAddressPageIn from './pages/ServiceAddressPageIn';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,6 +29,9 @@ root.render(
             <Route path="/Rent" element={<PrivateRoute element={<RentPage />} />} />
             <Route path="/RentHistory" element={<PrivateRoute element={<RentForm />}/>} />
             <Route path="/Pay" element={<PrivateRoute element={<Pay />}/>} />
+            <Route path='/MemberInfoPage' element={<PrivateRoute element={<MemberInfoPage />} />} />
+            <Route path='/ServiceAddressPage' element={<ServiceAddressPage />} />
+            <Route path='/ServiceAddressPageIn' element={<PrivateRoute element={<ServiceAddressPageIn />}/>} />
         </Routes>
     </Router>
 );
