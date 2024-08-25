@@ -1,6 +1,6 @@
 .ordersdashboard {
-  padding: 20px;
-  padding-left: 100px;
+  /* padding: 20px; */
+  padding: 20px 50px 20px 100px;
   
   
 }
@@ -11,17 +11,7 @@
   height: 100vh; /* 确保内容区域占满整个屏幕高度 */
 }
 
-aside {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 80px;
-  height: 100vh;
-  background-color: #c0bfbe;
-  padding: 20px;
-  color: black !important;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
+
 
 aside ul {
   list-style-type: none;
@@ -61,25 +51,18 @@ aside ul li a.active {
 .ordersTable th,
 .ordersTable td {
   border-bottom: 1px solid black !important; /* 使用 !important 确保样式生效 */
-  padding: 8px 23px;
+  padding: 8px 10px;
   color: black !important;
   text-align: left;
+  font-size: 15px;
+  table-layout: auto;
   
 }
 
 
 
 
-button {
-  width: 80px;
-  padding: 5px 10px;
-  margin-right: 10px;
-  background-color: black;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 12px;
-}
+
 
 button:hover {
   background-color: #333;

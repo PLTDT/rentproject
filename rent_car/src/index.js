@@ -6,17 +6,19 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Section1 from './components/Section1';
 import Cars from './cars';
-import Backstage from './components/Backstage';
+import OrderInfo from './components/OrderInfo';
 import Membership from './components/Membership';
 import EmployeesInfo from './components/EmployeesInfo';
+import OrderInfoPage from './pages/OrderInfoPage';
+import MembershipPage from './pages//MembershipPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 <Router>
       <Routes>
-        <Route path="/backstage" element={<Backstage/>} />
-        <Route path="/Membership" element={<Membership  />} />
+        <Route path="/OrderInfoPage" element={<OrderInfoPage/>} />
+        <Route path="/MembershipPage" element={<MembershipPage  />} />
         <Route path="/EmployeesInfo" element={<EmployeesInfo />} />
       </Routes>
     </Router>

@@ -60,19 +60,15 @@ const Membership = () => {
             </thead>
             <tbody>
               {filteredMembers.map((member) => (
-                <tr key={member.memberId}>
-                  <td>{member.memberId}</td>
-                  <td>{member.memberName}</td>
-                  <td>{member.memberEmail}</td>
-                  <td>{member.memberPhone}</td>
+                <tr key={member.employee_id}>
+                  <td>{member.employee_id}</td>
+                  <td>{member.employee_name}</td>
+                  <td>{member.email}</td>
+                  <td>{member.password}</td>
                   <td>
                     <button className={membership.button}>View</button>
-                    <button 
-                      className={membership.button}
-                      onClick={() => navigate('/')}  // 回到首页
-                    >
-                      Edit
-                    </button>
+                  
+                    
                   </td>
                 </tr>
               ))}
@@ -85,55 +81,12 @@ const Membership = () => {
   };
 
   return (
-    <div className={membership.container}>
-      <aside>
-        <ul>
-          <li>
-            <button
-              className={activeSection === 'members' ? membership.active : ''}
-              onClick={() => setActiveSection('members')}
-            >
-              會員資料
-            </button>
-          </li>
-          <li>
-            <button
-              className={activeSection === 'employeeInfo' ? membership.active : ''}
-              onClick={() => { 
-                setActiveSection('employeeInfo');
-                navigate('/employeesInfo');
-              }}
-            >
-              員工資訊
-            </button>
-          </li>
-          <li>
-            <button
-              className={activeSection === 'orders' ? membership.active : ''}
-              onClick={() => {
-                setActiveSection('orders');
-                navigate('/backstage');  // 导航到 Backstage 页面
-              }}
-            >
-              訂單資料
-            </button>
-          </li>
-          <li>
-            <button
-              className={activeSection === 'home' ? membership.active : ''}
-              onClick={() => {
-                window.location.href = 'http://tongbro.ddns.net/HomePage';
-              }}
-            >
-              回首頁
-            </button>
-          </li>
-        </ul>
-      </aside>
+    
+      
       <div className={membership.content}>
         {renderContent()}
       </div>
-    </div>
+   
   );
 };
 

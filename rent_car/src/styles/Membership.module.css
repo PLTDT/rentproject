@@ -54,7 +54,7 @@ aside ul li a.active {
 .membershipTable th,
 .membershipTable td {
   border-bottom: 1px solid black; /* 与 Backstage 保持一致的底部边框 */
-  padding: 8px 23px; /* 统一单元格的内边距 */
+  padding: 8px 5px; /* 统一单元格的内边距 */
   color: black !important; /* 强制设置文字颜色为黑色 */
   text-align: left; /* 文字左对齐 */
 }
