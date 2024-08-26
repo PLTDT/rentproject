@@ -12,6 +12,7 @@ import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
 import RentForm from './pages/RentForm';
 import Pay from './components/pay';
+import PaymentResult from './pages/PaymentResult';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,6 +27,7 @@ root.render(
             <Route path="/Rent" element={<PrivateRoute element={<RentPage />} />} />
             <Route path="/RentHistory" element={<PrivateRoute element={<RentForm />}/>} />
             <Route path="/Pay" element={<PrivateRoute element={<Pay />}/>} />
+            <Route path="/paymentResult" element={<PrivateRoute element={<PaymentResult />}/>} />
         </Routes>
     </Router>
 );
