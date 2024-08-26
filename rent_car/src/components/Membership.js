@@ -5,8 +5,8 @@ import membership from '../styles/Membership.module.css';
 const Membership = () => {
   const [activeSection, setActiveSection] = useState('members');
   const [members, setMembers] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(''); // 保存用户输入的搜索词
-  const [filteredMembers, setFilteredMembers] = useState([]); // 保存筛选后的会员
+  const [searchTerm, setSearchTerm] = useState(''); 
+  const [filteredMembers, setFilteredMembers] = useState([]); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,19 +19,32 @@ const Membership = () => {
           return response.json();
         })
         .then(data => {
+          console.log(data); 
           setMembers(data);
-          setFilteredMembers(data); // 初始加载时显示所有会员
+          setFilteredMembers(data); 
         })
         .catch(error => console.error('Error fetching data:', error));
     }
   }, [activeSection]);
 
   const handleSearch = () => {
-    const results = members.filter(member =>
-      member.memberId.includes(searchTerm) || member.memberName.includes(searchTerm) // 根据会员编号或会员名称进行筛选
-    );
-    setFilteredMembers(results); // 更新筛选后的会员数据
+    const results = members.filter(member => {
+      const idMatches = member.employeeId?.toString() === searchTerm; // 精準匹配 employeeId
+      const nameMatches = member.employeeName?.toLowerCase() === searchTerm.toLowerCase(); // 精準匹配 employeeName
+      return idMatches || nameMatches;
+    });
+    
+    if (results.length > 0) {
+      setFilteredMembers(results);
+    } else {
+      console.log('No matching results found.');
+      window.location.reload(); // 刷新页面
+    }
   };
+  
+  
+  
+
 
   const renderContent = () => {
     if (activeSection === 'members') {
@@ -39,13 +52,13 @@ const Membership = () => {
         <div className={membership.membershipDashboard}>
           <h2>會員資料</h2>
           <div className={membership.search_div}>
-            <button onClick={handleSearch}>搜尋</button> {/* 搜索按钮 */}
+            <button onClick={handleSearch}>搜尋</button> 
             <input 
               type="text" 
               className={membership.input} 
               placeholder='請輸入會員編號或會員名稱' 
               value={searchTerm} 
-              onChange={e => setSearchTerm(e.target.value)} // 更新搜索词
+              onChange={e => setSearchTerm(e.target.value)} 
             />
           </div>
           <table className={membership.membershipTable}>
@@ -55,21 +68,16 @@ const Membership = () => {
                 <th>會員名稱</th>
                 <th>Email</th>
                 <th>會員電話</th>
-                <th>動作</th>
               </tr>
             </thead>
             <tbody>
               {filteredMembers.map((member) => (
-                <tr key={member.employee_id}>
-                  <td>{member.employee_id}</td>
-                  <td>{member.employee_name}</td>
+                <tr key={member.employeeId}>
+                  <td>{member.employeeId}</td>
+                  <td>{member.employeeName}</td>
                   <td>{member.email}</td>
                   <td>{member.password}</td>
-                  <td>
-                    <button className={membership.button}>View</button>
-                  
-                    
-                  </td>
+   
                 </tr>
               ))}
             </tbody>
@@ -81,12 +89,9 @@ const Membership = () => {
   };
 
   return (
-    
-      
-      <div className={membership.content}>
-        {renderContent()}
-      </div>
-   
+    <div className={membership.content}>
+      {renderContent()}
+    </div>
   );
 };
 

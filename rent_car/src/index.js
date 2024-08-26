@@ -11,6 +11,7 @@ import Membership from './components/Membership';
 import EmployeesInfo from './components/EmployeesInfo';
 import OrderInfoPage from './pages/OrderInfoPage';
 import MembershipPage from './pages//MembershipPage';
+import EmployeeInfoPage from './pages//EmployeeInfoPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,7 +20,7 @@ root.render(
       <Routes>
         <Route path="/OrderInfoPage" element={<OrderInfoPage/>} />
         <Route path="/MembershipPage" element={<MembershipPage  />} />
-        <Route path="/EmployeesInfo" element={<EmployeesInfo />} />
+        <Route path="/EmployeeInfoPage" element={<EmployeeInfoPage />} />
       </Routes>
     </Router>
 );

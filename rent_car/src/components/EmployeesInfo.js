@@ -76,57 +76,12 @@ const EmployeeInfo = () => {
   };
 
   return (
-    <div className={EmployeeInfoStyles.container}>
-      <aside>
-        <ul>
-          <li>
-            <button
-              className={activeSection === 'members' ? EmployeeInfoStyles.active : ''}
-              onClick={() => {
-                setActiveSection('members');
-                navigate('/Membership'); // 然后导航到 Membership 页面
-              }}
-            >
-              會員資料
-            </button>
-          </li>
-          <li>
-          <button
-              className={activeSection === 'employeeInfo' ? EmployeeInfoStyles.active : ''}
-              onClick={() =>{ 
-                setActiveSection('employeeInfo')
-                navigate('/employeesInfo')}}
-            >
-              員工資訊
-            </button>
-          </li>
-          <li>
-          <button
-              className={activeSection === 'orders' ? EmployeeInfoStyles.active : ''}
-              onClick={() => {
-                setActiveSection('orders');
-                navigate('/backstage');  // 导航到 Backstage 页面
-              }}
-            >
-              訂單資料
-            </button>
-          </li>
-          <li>
-            <button
-              className={activeSection === 'home' ? EmployeeInfoStyles.active : ''}
-              onClick={() => {
-                window.location.href = 'http://tongbro.ddns.net/HomePage';
-              }}
-            >
-              回首頁
-            </button>
-          </li>
-        </ul>
-      </aside>
+  
+     
       <div className={EmployeeInfoStyles.content}>
         {renderContent()}
       </div>
-    </div>
+    
   );
 };
 

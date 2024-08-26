@@ -58,7 +58,7 @@ const OrderInfoComponent = () => {  // 改變元件名稱以匹配檔案名稱
             <table className={OrderInfo.ordersTable}>
               <thead>
                 <tr>
-                  <th>客戶編號</th>
+                  <th>會員編號</th>
                   <th>訂單編號</th>
                   <th>人數</th>
                   <th>租借日期</th>
@@ -75,7 +75,7 @@ const OrderInfoComponent = () => {  // 改變元件名稱以匹配檔案名稱
               <tbody>
                 {filteredOrders.map((order) => (
                   <tr key={order.car_id}>
-                    <td>{order.customer_id}</td> {/* 客戶編號 */}
+                    <td>{order.car_id}</td> {/* 客戶編號 */}
                     <td>{order.form_id}</td> {/* 訂單編號 */}
                     <td>{order.passenger}</td> {/* 人數 */}
                     <td>{order.rent_date}</td> {/* 租借日期 */}

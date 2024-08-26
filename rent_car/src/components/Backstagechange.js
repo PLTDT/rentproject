@@ -39,7 +39,7 @@ const BackstagechangeComponent = () => {
               className={activeSection === 'employeeInfo' ? Backstagechange.active : ''}
               onClick={() => {
                 setActiveSection('employeeInfo');
-                navigate('/employeesInfo');
+                navigate('/EmployeeInfoPage');
               }}
             >
               員工資訊
