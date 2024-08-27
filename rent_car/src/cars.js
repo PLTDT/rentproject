@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/Cars.css';
+
  // 確保你正確導入了 CSS 文件
 
 const cards = [

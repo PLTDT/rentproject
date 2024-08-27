@@ -1,8 +1,7 @@
 /* Membership.module.css */
 
 .membershipDashboard {
-  padding: 20px; /* 与 .orders-dashboard 一致 */
-  padding-left: 100px;
+  padding: 20px 50px 20px 120px;
 }
 
 .container {
@@ -53,10 +52,12 @@ aside ul li a.active {
 
 .membershipTable th,
 .membershipTable td {
-  border-bottom: 1px solid black; /* 与 Backstage 保持一致的底部边框 */
-  padding: 8px 5px; /* 统一单元格的内边距 */
-  color: black !important; /* 强制设置文字颜色为黑色 */
-  text-align: left; /* 文字左对齐 */
+  border-bottom: 1px solid black !important; /* 使用 !important 确保样式生效 */
+  padding: 8px 10px;
+  color: black !important;
+  text-align: left;
+  font-size: 15px;
+  table-layout: 1200px;
 }
 
 
@@ -69,15 +70,17 @@ h2 {
 }
 
 .button {
-  width: 80px; /* 设置按钮的固定宽度 */
+  width: 80px;
   padding: 5px 10px;
   margin-right: 10px;
-  background-color: black; /* 设置按钮背景颜色为黑色 */
-  color: white; /* 设置按钮文字颜色为白色 */
-  border: none; /* 移除默认边框 */
-  cursor: pointer; /* 设置鼠标移到按钮上时显示手型光标 */
-  font-size: 12px; /* 调整字体大小 */
+  background-color: rgb(47, 71, 113);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 25px;
 }
+
 
 .button:hover {
   background-color: #333; /* 当鼠标悬停时将背景变为更亮的黑色 */

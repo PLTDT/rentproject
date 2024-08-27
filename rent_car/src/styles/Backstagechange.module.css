@@ -10,10 +10,11 @@
   left: 0;
   width: 70px;
   height: 100vh;
-  background-color: #c0bfbe;
+  background-color: #4c95ca;
   padding: 20px;
-  color: black !important;
+  color: rgb(0, 0, 0) !important;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  
 }
 
 .aside_info ul {
@@ -27,19 +28,20 @@
 
 .aside_info ul li button {
    width: 80px;
-  padding: 5px 10px;
+  padding: 5px 5px;
   margin-right: 10px;
-  background-color: black;
+  background-color: rgb(47, 71, 113);
   color: white;
   border: none;
   cursor: pointer;
   font-size: 12px;
+  border-radius: 25px;
 }
 
 .aside_info ul li button.active,
 .aside_info ul li button:hover {
-  color: #d4e9e7;
-  border-bottom: 2px solid #000;
+  color: #1bc8df;
+  border-bottom: 2px solid #2be9f0;
 }
 
 /* 內容區域樣式 */
@@ -80,6 +82,7 @@
   border: none;
   cursor: pointer;
   font-size: 12px;
+  
 }
 
 button:hover {

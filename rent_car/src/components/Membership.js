@@ -52,7 +52,7 @@ const Membership = () => {
         <div className={membership.membershipDashboard}>
           <h2>會員資料</h2>
           <div className={membership.search_div}>
-            <button onClick={handleSearch}>搜尋</button> 
+          <button onClick={handleSearch} className={membership.button}>搜尋訂單</button> {/* 搜尋按鈕 */}
             <input 
               type="text" 
               className={membership.input} 

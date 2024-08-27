@@ -1,7 +1,6 @@
 /* 将 .ordersdashboard 修改为 .employeeInfoDashboard */
 .employeeInfoDashboard {
-    padding: 20px;
-    padding-left: 100px;
+  padding: 20px 50px 20px 120px;
     
   }
   
@@ -62,13 +61,14 @@
   .employeeInfoTable th,
   .employeeInfoTable td {
     border-bottom: 1px solid black !important; /* 使用 !important 确保样式生效 */
-    padding: 8px 23px;
+    padding: 8px 10px;
     color: black !important;
     text-align: left;
-
+    font-size: 15px;
+    table-layout: 1200px;
   }
   
-  button {
+  .button {
     width: 80px;
     padding: 5px 10px;
     margin-right: 10px;

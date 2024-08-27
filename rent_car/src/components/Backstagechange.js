@@ -23,6 +23,17 @@ const BackstagechangeComponent = () => {
     <div className={Backstagechange.container}>
       <aside className={Backstagechange.aside_info}>
         <ul>
+        <li>
+            <button
+              className={` ${activeSection === 'members' ? Backstagechange.active : ''}`}
+              onClick={() => {
+                  setActiveSection('members');
+                  navigate('/MembershipPage');
+              }}
+            >
+              Overview
+            </button>
+          </li>
           <li>
             <button
               className={` ${activeSection === 'members' ? Backstagechange.active : ''}`}
@@ -63,7 +74,7 @@ const BackstagechangeComponent = () => {
                 window.location.href = 'http://tongbro.ddns.net/HomePage';
               }}
             >
-              回首頁
+              回前台
             </button>
           </li>
         </ul>

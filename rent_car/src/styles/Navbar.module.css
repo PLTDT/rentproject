@@ -1,0 +1,15 @@
+/* Navbar.css */
+.navbar {
+    background-color: #064772;
+    padding: 10px 0px;
+    color: white   !important ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .profile {
+    cursor: pointer;
+  }
+  

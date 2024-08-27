@@ -9,7 +9,7 @@ const EmployeeInfo = () => {
 
   useEffect(() => {
     if (activeSection === 'employeeInfo') {
-      fetch('http://localhost:8080/daniel/getallemployees') // 假设此 API 返回所有员工信息
+      fetch('http://localhost:8080/daniel3/getallemployee3') // 假设此 API 返回所有员工信息
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -42,30 +42,16 @@ const EmployeeInfo = () => {
                   <th>員工名稱</th>
                   <th>職位</th>
                   <th>部門</th>
-                  <th>動作</th>
                 </tr>
               </thead>
               <tbody>
                 {employeeInfo.map((employee) => (
-                  <tr key={employee.employeeNumber}>
-                    <td>{employee.employeeNumber}</td>
+                  <tr key={employee.employeeId}>
+                    <td>{employee.employeeId}</td>
                     <td>{employee.employeeName}</td>
                     <td>{employee.employeePosition}</td>
-                    <td>{employee.employeeDept}</td>
-                    <td>
-                      <button
-                        className={EmployeeInfoStyles.button}
-                        onClick={() => navigate(`/employee/${employee.employeeNumber}`)}
-                      >
-                        View
-                      </button>
-                      <button
-                        className={EmployeeInfoStyles.button}
-                        onClick={() => navigate(`/employee/edit/${employee.employeeNumber}`)}
-                      >
-                        Edit
-                      </button>
-                    </td>
+                    <td>{employee.employeeDep}</td>
+                 
                   </tr>
                 ))}
               </tbody>

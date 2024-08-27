@@ -29,10 +29,11 @@ const OrderInfoComponent = () => {  // 改變元件名稱以匹配檔案名稱
 
   const handleSearch = () => {
     const results = orders.filter(order =>
-      order.form_id.includes(searchTerm) || order.customer_name.includes(searchTerm) // 根據訂單編號或客戶名稱進行篩選
+      (order.form_id?.includes(searchTerm) || order.customer_name?.includes(searchTerm))
     );
-    setFilteredOrders(results); // 更新篩選後的訂單
+    setFilteredOrders(results);
   };
+  
 
   const renderContent = () => {
     switch (activeSection) {
@@ -46,7 +47,7 @@ const OrderInfoComponent = () => {  // 改變元件名稱以匹配檔案名稱
           <div className={OrderInfo.ordersdashboard}>
             <h2>訂單資料</h2>
             <div className={OrderInfo.search_div}>
-              <button onClick={handleSearch}>搜尋訂單</button> {/* 搜尋按鈕 */}
+            <button onClick={handleSearch} className={OrderInfo.button}>搜尋訂單</button> {/* 搜尋按鈕 */}
               <input 
                 type="text" 
                 className='input' 

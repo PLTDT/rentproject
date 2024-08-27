@@ -1,6 +1,6 @@
 .ordersdashboard {
   /* padding: 20px; */
-  padding: 20px 50px 20px 100px;
+  padding: 20px 50px 20px 120px;
   
   
 }
@@ -55,11 +55,21 @@ aside ul li a.active {
   color: black !important;
   text-align: left;
   font-size: 15px;
-  table-layout: auto;
+  table-layout: 1200px;
   
 }
 
-
+.button {
+  width: 80px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  background-color: rgb(47, 71, 113);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 25px;
+}
 
 
 
@@ -74,7 +84,7 @@ button:last-child {
 /* 样式已包含其他部分，只需专注于 active 样式 */
 .active {
   color: #d4e9e7; /* 这是你的 active 样式 */
-  border-bottom: 2px solid #000; /* 在 active 的导航项下添加底线 */
+  border-bottom: 2px solid #ca2525; /* 在 active 的导航项下添加底线 */
 }
 input{
   color:#000
