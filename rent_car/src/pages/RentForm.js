@@ -8,7 +8,7 @@ import PageHeaderIn from '../components/PageHeaderIn';
 
 const RentForm = () => {
     const [data, setData] = useState(null); // State to store fetched data
-    const [error, setError] = useState(null);
+    const [error] = useState(null);
     
     const user = JSON.parse(localStorage.getItem('user'));
     const cemail=user.email;
@@ -16,7 +16,7 @@ const RentForm = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://tongbro.ddns.net:8080/api/v1/rentform/getrentcar?email=${cemail}`); // Make a GET request
+                const response = await axios.get(`http://localhost:8080/api/v1/rentform/getrentcar?email=${cemail}`); // Make a GET request
                 setData(response.data); // Update state with fetched data
             } catch (error) {
                 console.error("Error fetching data:", error);

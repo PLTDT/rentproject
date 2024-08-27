@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import memberinfo from '../styles/MemberInfo.module.css';
 
 const MemberInfo = () => {
     const [data, setData] = useState([]); // 初始狀態設為空數組
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true); // 用於追蹤加載狀態
 
     const user = JSON.parse(localStorage.getItem('user'));
     const cemail = user?.email;
@@ -13,23 +13,32 @@ const MemberInfo = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://tongbro.ddns.net:8080/api/v1/memberinfo/getmemberinfo?email=${cemail}`);
+                const response = await axios.get(`http://localhost:8080/api/v1/memberinfo/getmemberinfo?email=${cemail}`);
                 console.log('API response:', response.data); // 打印 API 返回的數據
                 const result = Array.isArray(response.data) ? response.data : [response.data];
                 setData(result);
             } catch (error) {
                 console.error("Error fetching data:", error);
                 setError(error);
+            } finally {
+                setLoading(false); // 無論成功或失敗，結束後都停止加載
             }
         };
         
-
         if (cemail) {
             fetchData(); // 組件掛載時調用函數
+        } else {
+            setLoading(false);
         }
     }, [cemail]);
 
-    const navigate = useNavigate();
+    if (loading) {
+        return <p>資料加載中...</p>;
+    }
+
+    if (!user) {
+        return <p>請先登錄。</p>;
+    }
 
     return (
         <div className={memberinfo.info_bg}>

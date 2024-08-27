@@ -5,14 +5,21 @@ import axios from "axios";
 
 const PaymentResult = () => {
     const [payresult, setPayresult] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
+
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/v1/pay/paymentResult`);
+                const response = await axios.get("http://localhost:8080/paymentResult");
                 setPayresult(response.data);
             } catch (error) {
-                console.error("Error fetching data:", error);
+                // 更安全地处理错误信息
+                const errorMessage = error.response?.data?.message || error.message || "未知錯誤";
+                setError(errorMessage);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -23,14 +30,20 @@ const PaymentResult = () => {
         <div>
             <PageHeaderIn />
             <h1>Payment Result</h1>
-            {payresult ? (
+            {loading ? (
+                <p>Loading...</p>
+            ) : error ? (
+                <p>Error: {error}</p>
+            ) : payresult ? (
                 <ul>
                     {Object.entries(payresult).map(([key, value]) => (
-                        <li key={key}>{key}: {value}</li>
+                        <li key={key}>
+                            {key}: {typeof value === 'object' ? JSON.stringify(value) : value}
+                        </li>
                     ))}
                 </ul>
             ) : (
-                <p>Loading...</p>
+                <p>No data available</p>
             )}
             <FooterIn />
         </div>
