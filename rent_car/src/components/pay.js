@@ -7,25 +7,26 @@ import axios from "axios";
 
 const Pay = () => {
     const location = useLocation();
-    const { rowData } = location.state || {}; // Default to an empty object if location.state is undefined
+    const { rowData } = location.state || {};
 
     const [formid] = useState(rowData?.formid || "");
     const [total, setTotal] = useState("");
     const [paydata, setPaydata] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
+    const [htmlResponse, setHtmlResponse] = useState(""); // 用於存儲 HTML 響應
 
-    // Fetch payment data when component mounts or formid changes
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`http://localhost:8080/api/v1/pay/getpaydata`, {
                     params: { formid }
                 });
-
+    
+                console.log("Fetched payment data:", response.data);
+    
                 setPaydata(response.data);
-
-                // Ensure that total is updated from the response
+    
                 if (response.data.total !== undefined) {
                     setTotal(response.data.total.toString());
                 }
@@ -34,47 +35,42 @@ const Pay = () => {
                 setError("發生錯誤，請稍後再試");
             }
         };
-
+    
         fetchData();
     }, [formid]);
 
     async function payaction(event) {
         event.preventDefault();
-        setIsLoading(true); // Start loading
+        console.log("payaction method triggered");
+        setIsLoading(true);
+    
         try {
-            // 使用 GET 請求並傳遞查詢參數
             const response = await axios.get("http://localhost:8080/payment", {
                 params: { formid, total }
             });
     
-            // 確保返回的是 HTML 表單，而不是 JSON
-            if (response.data) {
-                console.log("Received HTML form:", response.data); // Log the received HTML
-                
-                // Create a div to hold the form and append it to the body
-                const formElement = document.createElement('div');
-                formElement.innerHTML = response.data;
-                document.body.appendChild(formElement);
-                
-                // Check if form is correctly found
-                const form = formElement.querySelector('form');
+            console.log("Received response data:", response.data);
+    
+            if (typeof response.data === 'string') {
+                // 設置 HTML 響應
+                setHtmlResponse(response.data);
+                // 使用 DOMParser 解析 HTML 字符串
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(response.data, 'text/html');
+                const form = doc.querySelector('form');
                 if (form) {
+                    // 將表單添加到 document.body 中並提交
+                    document.body.appendChild(form);
                     form.submit();
-                } else {
-                    console.error('表單未找到');
                 }
             } else {
-                console.error('Unexpected response format:', response.data);
+                console.error("Unexpected response format");
             }
         } catch (error) {
             console.error("發生錯誤", error);
-            if (error.response) {
-                setError(`發生錯誤，請稍後再試: ${error.response.data}`);
-            } else {
-                setError(`發生錯誤，請稍後再試: ${error.message}`);
-            }
+            setError(`發生錯誤，請稍後再試: ${error.response?.data || error.message}`);
         } finally {
-            setIsLoading(false); // Stop loading
+            setIsLoading(false);
         }
     }
 

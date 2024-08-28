@@ -1,30 +1,31 @@
 import React, { useEffect, useState } from "react";
 import PageHeaderIn from "../components/PageHeaderIn";
 import FooterIn from "../components/FooterIn";
-import axios from "axios";
+import { useLocation } from 'react-router-dom';
 
 const PaymentResult = () => {
-    const [payresult, setPayresult] = useState(null);
+    const [merchantTradeNo, setMerchantTradeNo] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const location = useLocation();
 
     useEffect(() => {
+        // 解析 URL 查詢參數
+        const query = new URLSearchParams(location.search);
+        const merchantTradeNo = query.get("MerchantTradeNo");
 
-        const fetchData = async () => {
-            try {
-                const response = await axios.get("http://localhost:8080/paymentResult");
-                setPayresult(response.data);
-            } catch (error) {
-                // 更安全地处理错误信息
-                const errorMessage = error.response?.data?.message || error.message || "未知錯誤";
-                setError(errorMessage);
-            } finally {
-                setLoading(false);
-            }
-        };
+        console.log("URL Search Params:", location.search); // 確認 URL 查詢參數
+        console.log("MerchantTradeNo:", merchantTradeNo); // 調試輸出
 
-        fetchData();
-    }, []);
+        if (!merchantTradeNo) {
+            setError("Missing MerchantTradeNo in query parameters");
+            setLoading(false);
+            return;
+        }
+
+        setMerchantTradeNo(merchantTradeNo);
+        setLoading(false);
+    }, [location.search]);
 
     return (
         <div>
@@ -34,16 +35,11 @@ const PaymentResult = () => {
                 <p>Loading...</p>
             ) : error ? (
                 <p>Error: {error}</p>
-            ) : payresult ? (
-                <ul>
-                    {Object.entries(payresult).map(([key, value]) => (
-                        <li key={key}>
-                            {key}: {typeof value === 'object' ? JSON.stringify(value) : value}
-                        </li>
-                    ))}
-                </ul>
             ) : (
-                <p>No data available</p>
+                <div>
+                    <h2>付款結果</h2>
+                    <p>付款成功！訂單號: {merchantTradeNo}</p>
+                </div>
             )}
             <FooterIn />
         </div>
