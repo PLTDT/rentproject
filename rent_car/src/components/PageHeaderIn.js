@@ -38,13 +38,16 @@ const PageHeaderIn = () => {
                             <Link to="/Rent">租車服務</Link>
                         </li>
                         <li className={pheader.menu}>
+                            <Link to="/MemberInfoPage">會員資料</Link>
+                        </li>
+                        <li className={pheader.menu}>
                             <Link to="/RentHistory">訂單紀錄</Link>
                         </li>
                         <li className={pheader.menu}>
                             <Link to="#">車款介紹</Link> {/* 使用 `#` 來處理空鏈接 */}
                         </li>
                         <li className={pheader.menu}>
-                            <Link to="#">服務據點</Link> {/* 使用 `#` 來處理空鏈接 */}
+                            <Link to="/ServiceAddressPageIn">服務據點</Link> {/* 使用 `#` 來處理空鏈接 */}
                         </li>
                     </ul>
                     <div className={pheader.welcome}>

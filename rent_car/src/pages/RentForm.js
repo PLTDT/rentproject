@@ -8,7 +8,7 @@ import PageHeaderIn from '../components/PageHeaderIn';
 
 const RentForm = () => {
     const [data, setData] = useState(null); // State to store fetched data
-    const [error, setError] = useState(null);
+    const [error] = useState(null);
     
     const user = JSON.parse(localStorage.getItem('user'));
     const cemail=user.email;
