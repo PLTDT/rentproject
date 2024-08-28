@@ -12,12 +12,14 @@ import EmployeesInfo from './components/EmployeesInfo';
 import OrderInfoPage from './pages/OrderInfoPage';
 import MembershipPage from './pages//MembershipPage';
 import EmployeeInfoPage from './pages//EmployeeInfoPage';
+import DashboardInfoPage from './pages//DashboardInfoPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 <Router>
       <Routes>
+        <Route path="/DashboardInfoPage" element={<DashboardInfoPage/>} />
         <Route path="/OrderInfoPage" element={<OrderInfoPage/>} />
         <Route path="/MembershipPage" element={<MembershipPage  />} />
         <Route path="/EmployeeInfoPage" element={<EmployeeInfoPage />} />

@@ -28,7 +28,7 @@ const BackstagechangeComponent = () => {
               className={` ${activeSection === 'members' ? Backstagechange.active : ''}`}
               onClick={() => {
                   setActiveSection('members');
-                  navigate('/MembershipPage');
+                  navigate('/DashboardInfoPage');
               }}
             >
               Overview
