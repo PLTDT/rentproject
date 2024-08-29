@@ -86,8 +86,55 @@
 .ordersDashboard, .brandDashboard {
   display: block;
   box-sizing: border-box;
-  height: 400px;
+  height: 300px;
   width: 35%; /* 使用百分比來讓兩個圖表並排 */
   margin: 0 20px; /* 給每個圖表左右一些空間 */
+}
+.h2{
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    padding: 10px 10px;
+    font-weight: bold;
+}
+.filterContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 100px; /* 向右移动一些 */
+}
+
+
+.filterContainer label {
+  font-size: 18px;
+  margin-right: 10px;
+  color: black;
+}
+
+.filterContainer select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #e5e3e3;
+  border-radius: 4px;
+  background-color: #f4f4f4;
+  color: black;
+  cursor: pointer;
+}
+.filterContainer select option {
+  color: #333333; /* 将选项文字颜色更改为深灰色，您可以根据需要更改颜色值 */
+}
+
+.filterContainer select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.ordersDashboard h2,
+.brandDashboard h2 {
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  margin-bottom: 20px;
 }
 
