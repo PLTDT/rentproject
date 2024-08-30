@@ -38,10 +38,14 @@ const Pay = () => {
     
         fetchData();
     }, [formid]);
+    
 
     async function payaction(event) {
         event.preventDefault();
         console.log("payaction method triggered");
+        console.log("formid:", formid);
+        console.log("total:", total); // 確認這裡的 total 值是否正確
+    
         setIsLoading(true);
     
         try {
@@ -73,6 +77,7 @@ const Pay = () => {
             setIsLoading(false);
         }
     }
+    
 
     return (
         <div>
