@@ -156,3 +156,19 @@
 .form_none{
     display: none;
 }
+
+/* Rent.module.css */
+.deleted {
+    background-color: #f2f2f2; /* 或者其他暗灰色 */
+    color: #888; /* 或者其他顏色 */
+    text-decoration: line-through; /* 顯示刪除線 */
+}
+
+.deleted button {
+    cursor: not-allowed; /* 禁止點擊的光標 */
+    opacity: 0.5; /* 使按鈕變得半透明 */
+}
+
+.status {
+    color: black;
+}

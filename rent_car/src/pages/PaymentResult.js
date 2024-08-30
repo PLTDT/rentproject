@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PageHeaderIn from "../components/PageHeaderIn";
 import FooterIn from "../components/FooterIn";
 import { useLocation } from 'react-router-dom';
+import paymentResult from "../styles/PaymentResult.module.css";
 
 const PaymentResult = () => {
     const [merchantTradeNo, setMerchantTradeNo] = useState(null);
@@ -30,17 +31,21 @@ const PaymentResult = () => {
     return (
         <div>
             <PageHeaderIn />
-            <h1>Payment Result</h1>
-            {loading ? (
-                <p>Loading...</p>
-            ) : error ? (
-                <p>Error: {error}</p>
-            ) : (
-                <div>
-                    <h2>付款結果</h2>
-                    <p>付款成功！訂單號: {merchantTradeNo}</p>
+            <div className={paymentResult.info_bg}>
+                <div className={paymentResult.container}>
+                    <div className={paymentResult.info_title}>付款結果</div>
+                    {loading ? (
+                        <p className={paymentResult.info_item}>Loading...</p>
+                    ) : error ? (
+                        <p className={paymentResult.info_item}>Error: {error}</p>
+                    ) : (
+                        <div className={paymentResult.info_item}>
+                            <p>訂單號碼: {merchantTradeNo}</p>
+                            <p>付款成功！</p>
+                        </div>
+                    )}
                 </div>
-            )}
+            </div>
             <FooterIn />
         </div>
     );
