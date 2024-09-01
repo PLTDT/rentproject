@@ -15,7 +15,6 @@ const CarBookingForm = () => {
     const [returndate, setReturndate] = useState(""); // 還車日期
     const [carbrand, setCarbrand] = useState(""); // 訂購車型
     const [passenger, setPassenger] = useState(""); // 乘車人數
-    const [couponcode, setCouponcode] = useState(""); // 折價券號
     const [customername] = useState(cname); // 貴賓姓名
     const [customeremail] = useState(cemail); // 貴賓信箱
     const [error, setError] = useState(""); // 錯誤訊息
@@ -39,7 +38,6 @@ const CarBookingForm = () => {
                 returndate,
                 carbrand,
                 passenger,
-                couponcode,
                 customername,
                 customeremail,
             });
@@ -56,7 +54,6 @@ const CarBookingForm = () => {
                 setReturndate("");
                 setCarbrand("");
                 setPassenger("");
-                setCouponcode("");
                 //setCustomername("");
                 //setCustomeremail("");
                 setError("");  // 清除錯誤訊息
@@ -178,7 +175,7 @@ const CarBookingForm = () => {
                         />
                     </div>
 
-                    {/* 折價券號輸入 */}
+                    {/* 折價券號輸入 
                     <div className={rent.form_section}>
                         <label htmlFor="couponcode">折價券號</label>
                         <input
