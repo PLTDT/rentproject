@@ -41,26 +41,6 @@ const RentForm = () => {
         }
     };
 
-    const handleDeleteClick = async (formid) => {
-        try {
-            const response = await axios.delete(`http://localhost:8080/api/v1/rentform/delete/${formid}`);
-            if (response.status === 200) {
-                alert("訂單已成功取消");
-                // 更新訂單狀態
-                setData(prevData => {
-                    const updatedData = prevData.map(item =>
-                        item.formid === formid ? { ...item, deleted: true } : item
-                    );
-                    console.log("Updated data after delete:", updatedData); // Debugging line
-                    return updatedData;
-                });
-            }
-        } catch (error) {
-            console.error("Error deleting order:", error);
-            alert("刪除訂單時出錯");
-        }
-    };
-
     async function deleteaction(formid) {
         try {
             await axios.post(`http://localhost:8080/api/v1/rentform/deletedata`, null, { params: { formid } });
