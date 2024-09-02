@@ -29,17 +29,41 @@ const RentForm = () => {
                 setIsLoading(false); // Set loading to false when data is fetched
             }
         };
-
-        fetchData(); // Call the function when the component mounts
+        
+    
+        fetchData();
     }, [cemail]);
+    
 
     const handleRowClick = (rowData) => {
-        navigate('/Pay', { state: { rowData } });
+        if (!rowData.deleted) {
+            navigate('/Pay', { state: { rowData } });
+        }
+    };
+
+    const handleDeleteClick = async (formid) => {
+        try {
+            const response = await axios.delete(`http://localhost:8080/api/v1/rentform/delete/${formid}`);
+            if (response.status === 200) {
+                alert("訂單已成功取消");
+                // 更新訂單狀態
+                setData(prevData => {
+                    const updatedData = prevData.map(item =>
+                        item.formid === formid ? { ...item, deleted: true } : item
+                    );
+                    console.log("Updated data after delete:", updatedData); // Debugging line
+                    return updatedData;
+                });
+            }
+        } catch (error) {
+            console.error("Error deleting order:", error);
+            alert("刪除訂單時出錯");
+        }
     };
 
     async function deleteaction(formid) {
         try {
-            await axios.post(`http://localhost:8080/api/v1/pay/deletedata`, null, { params: { formid } });
+            await axios.post(`http://localhost:8080/api/v1/rentform/deletedata`, null, { params: { formid } });
             // Refresh the data after deletion
             const response = await axios.get(`http://localhost:8080/api/v1/rentform/getrentcar?email=${cemail}`);
             setData(response.data); // Update the state with the refreshed data
@@ -108,7 +132,7 @@ const RentForm = () => {
                                             <td className={rent.form_tbody}>{item.passenger}</td>
                                             <td className={rent.form_tbody}>{item.customername}</td>
                                             <td className={rent.form_tbody}>{item.customeremail}</td>
-                                            <td className={rent.form_tbody}>{item.paystatus?'已付款':'未付款'}</td>
+                                            <td className={rent.form_tbody}>{item.paystatus}</td>
                                             <td className={rent.form_tbody}>{item.isdeleted ? '已取消' : '有效'}</td>
                                             <td>
                                             {item.paystatus !== '已付款' && !item.isdeleted && (
