@@ -59,14 +59,13 @@ const OrderInfoComponent = () => {  // 改變元件名稱以匹配檔案名稱
             <table className={OrderInfo.ordersTable}>
               <thead>
                 <tr>
-                  <th>會員編號</th>
+                  <th>項次</th>
                   <th>訂單編號</th>
-                  <th>人數</th>
+                  <th>付款日期</th>
                   <th>租借日期</th>
                   <th>歸還日期</th>
+                  <th>租借天數</th>
                   <th>汽車品牌</th>
-                  <th>租借地點</th>
-                  <th>歸還地點</th>
                   <th>會員名稱</th>
                   <th>會員電話</th>
                   <th>總金額</th>
@@ -76,18 +75,17 @@ const OrderInfoComponent = () => {  // 改變元件名稱以匹配檔案名稱
               <tbody>
                 {filteredOrders.map((order) => (
                   <tr key={order.car_id}>
-                    <td>{order.car_id}</td> {/* 客戶編號 */}
+                    <td>{order.payid}</td> {/* 客戶編號 */}
                     <td>{order.form_id}</td> {/* 訂單編號 */}
-                    <td>{order.passenger}</td> {/* 人數 */}
+                    <td>{order.pay_date}</td> {/* 人數 */}
                     <td>{order.rent_date}</td> {/* 租借日期 */}
                     <td>{order.return_date}</td> {/* 歸還日期 */}
-                    <td>{order.car_brand}</td> {/* 汽車品牌 */}
-                    <td>{order.rent_place}</td> {/* 租借地點 */}
-                    <td>{order.return_place}</td> {/* 歸還地點 */}
+                    <td>{order.total_days}</td> {/* 汽車品牌 */}
+                    <td>{order.car_brand}</td> {/* 租借地點 */}
                     <td>{order.customer_name}</td> {/* 會員名稱 */}
-                    <td>{order.customer_phone}</td>{/* 會員電話 */}
+                    <td>{order.customer_email}</td>{/* 會員電話 */}
                     <td>{order.total}</td> {/* 總金額 */} 
-                    <td>{order.status}</td> {/* 狀態 */}
+                    <td>{order.paymethod}</td> {/* 狀態 */}
                   </tr>
                 ))}
               </tbody>

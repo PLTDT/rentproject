@@ -67,7 +67,6 @@ const Membership = () => {
                 <th>會員編號</th>
                 <th>會員名稱</th>
                 <th>Email</th>
-                <th>會員電話</th>
               </tr>
             </thead>
             <tbody>
@@ -76,7 +75,6 @@ const Membership = () => {
                   <td>{member.employeeId}</td>
                   <td>{member.employeeName}</td>
                   <td>{member.email}</td>
-                  <td>{member.password}</td>
    
                 </tr>
               ))}
