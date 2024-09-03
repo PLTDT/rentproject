@@ -62,7 +62,13 @@
     padding: 10px;
     text-align: center;
 }
-.paybtn{
+.paybtns{
+    position: relative;
+    text-align: center;
+    left:50%;
+    transform: translateX(-50%);
+}
+.ecpaybtn{
     position: relative;
     background-color: #101010;
     color: white;
@@ -74,6 +80,19 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
-    left:50%;
-    transform: translateX(-50%);
+    margin: 10px;
+}
+.linepaybtn{
+    position: relative;
+    background-color: #101010;
+    color: white;
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px;
 }
