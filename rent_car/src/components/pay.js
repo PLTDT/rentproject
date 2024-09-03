@@ -22,7 +22,7 @@ const Pay = () => {
             setFormid(rowData.formid || "");
             const addData = async () => {
                 try {
-                    const response = await axios.post(`http://localhost:8080/api/v1/pay/paydata`, rowData);
+                    const response = await axios.post(`http://tongbro.ddns.net:8080/api/v1/pay/paydata`, rowData);
                     console.log("Added payment data:", response.data);
                     setDataAdded(true); // Set to true when data is successfully added
                 } catch (error) {
@@ -38,7 +38,7 @@ const Pay = () => {
         if (dataAdded && formid) { // Check if data has been added
             const fetchData = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:8080/api/v1/pay/getpaydata`, {
+                    const response = await axios.get(`http://tongbro.ddns.net:8080/api/v1/pay/getpaydata`, {
                         params: { formid }
                     });
 
@@ -66,7 +66,7 @@ const Pay = () => {
     
         setIsLoading(true);
         try {
-            const response = await axios.get("http://localhost:8080/payment", {
+            const response = await axios.get("http://tongbro.ddns.net:8080/payment", {
                 params: { formid, total }
             });
 
@@ -98,7 +98,7 @@ const Pay = () => {
         console.log("total:", total);
         
         try {
-            const response = await axios.post("http://localhost:8080/api/linepay/request", null, {
+            const response = await axios.post("http://tongbro.ddns.net:8080/api/linepay/request", null, {
                 params: { formid, total }
             });
             console.log("Received response data:", response.data);

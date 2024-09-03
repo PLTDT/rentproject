@@ -20,7 +20,7 @@ const RentForm = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/v1/rentform/getrentcar?email=${cemail}`);
+                const response = await axios.get(`http://tongbro.ddns.net:8080/api/v1/rentform/getrentcar?email=${cemail}`);
                 setData(response.data); // Update state with fetched data
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -41,9 +41,9 @@ const RentForm = () => {
 
     async function deleteaction(formid) {
         try {
-            await axios.post(`http://localhost:8080/api/v1/rentform/deletedata`, null, { params: { formid } });
+            await axios.post(`http://tongbro.ddns.net:8080/api/v1/rentform/deletedata`, null, { params: { formid } });
             // Refresh the data after deletion
-            const response = await axios.get(`http://localhost:8080/api/v1/rentform/getrentcar?email=${cemail}`);
+            const response = await axios.get(`http://tongbro.ddns.net:8080/api/v1/rentform/getrentcar?email=${cemail}`);
             setData(response.data); // Update the state with the refreshed data
         } catch (error) {
             console.error("Error deleting data:", error);

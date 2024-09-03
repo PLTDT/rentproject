@@ -34,7 +34,7 @@ const LinePayResult = () => {
             console.log("formid:", formid);
             console.log("total:", total);
             try {
-                const result = await axios.post(`http://localhost:8080/api/linepay/confirm`, null, {
+                const result = await axios.post(`http://tongbro.ddns.net:8080/api/linepay/confirm`, null, {
                     params: { transactionId, total, formid }
                 });
                 console.log(result.data);
