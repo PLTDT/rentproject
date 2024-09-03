@@ -16,6 +16,7 @@ import PaymentResult from './pages/PaymentResult';
 import MemberInfoPage from './pages/MemberInfoPage';
 import ServiceAddressPage from './pages/ServiceAddressPage';
 import ServiceAddressPageIn from './pages/ServiceAddressPageIn';
+import LinePayResult from './components/LinePayResult';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -34,6 +35,7 @@ root.render(
             <Route path='/MemberInfoPage' element={<PrivateRoute element={<MemberInfoPage />}/>} />
             <Route path='/ServiceAddressPage' element={<ServiceAddressPage />} />
             <Route path='/ServiceAddressPageIn' element={<PrivateRoute element={<ServiceAddressPageIn />}/>} />
+            <Route path='/LinePayResult' element={<PrivateRoute element={<LinePayResult />}/>} />
         </Routes>
     </Router>
 );

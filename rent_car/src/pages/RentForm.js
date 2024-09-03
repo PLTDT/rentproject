@@ -39,7 +39,7 @@ const RentForm = () => {
 
     async function deleteaction(formid) {
         try {
-            await axios.post(`http://localhost:8080/api/v1/pay/deletedata`, null, { params: { formid } });
+            await axios.post(`http://localhost:8080/api/v1/rentform/deletedata`, null, { params: { formid } });
             // Refresh the data after deletion
             const response = await axios.get(`http://localhost:8080/api/v1/rentform/getrentcar?email=${cemail}`);
             setData(response.data); // Update the state with the refreshed data
@@ -108,7 +108,7 @@ const RentForm = () => {
                                             <td className={rent.form_tbody}>{item.passenger}</td>
                                             <td className={rent.form_tbody}>{item.customername}</td>
                                             <td className={rent.form_tbody}>{item.customeremail}</td>
-                                            <td className={rent.form_tbody}>{item.paystatus?'已付款':'未付款'}</td>
+                                            <td className={rent.form_tbody}>{item.paystatus}</td>
                                             <td className={rent.form_tbody}>{item.isdeleted ? '已取消' : '有效'}</td>
                                             <td>
                                             {item.paystatus !== '已付款' && !item.isdeleted && (

@@ -62,7 +62,6 @@ const Pay = () => {
         event.preventDefault();
         console.log("payaction method triggered");
         setIsLoading(true);
-
         try {
             const response = await axios.get("http://localhost:8080/payment", {
                 params: { formid, total }
@@ -89,6 +88,33 @@ const Pay = () => {
             setIsLoading(false);
         }
     }
+
+    async function linepayAction() {
+        console.log("formid:", formid);
+        console.log("total:", total);
+        
+        try {
+            const response = await axios.post("http://localhost:8080/api/linepay/request", null, {
+                params: { formid, total }
+            });
+            console.log("Received response data:", response.data);
+    
+            const { web } = response.data.info.paymentUrl;
+            const { transactionId } = response.data.info;
+    
+            console.log("Web URL:", web);
+            console.log("Transaction ID:", transactionId);
+            
+            window.location.href = web;
+    
+        } catch (error) {
+            console.error("An error occurred:", error.message);
+            setError(`Request error: ${error.message}`);
+        }
+    }
+    
+    
+    
 
     return (
         <div>
@@ -132,9 +158,14 @@ const Pay = () => {
                     ) : (
                         <p>Loading...</p>
                     )}
-                    <button className={paycss.paybtn} onClick={payaction} disabled={isLoading}>
-                        {isLoading ? 'Processing...' : '付款'}
+                    <div className={paycss.paybtns}>
+                    <button className={paycss.ecpaybtn} onClick={payaction} disabled={isLoading}>
+                        {isLoading ? 'Processing...' : '信用卡付款'}
                     </button>
+                    <button className={paycss.linepaybtn} onClick={linepayAction} disabled={isLoading}>
+                        {isLoading ? 'Processing...' : 'linepay付款'}
+                    </button>
+                    </div>
                 </div>
             </div>
             <FooterIn />
