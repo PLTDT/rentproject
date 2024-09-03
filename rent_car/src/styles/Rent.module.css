@@ -100,11 +100,10 @@
 }
 .container2 {
     position: relative;
-    max-width:1200px;
+    max-width:1400px;
     margin: auto;
     top: 50%;
     transform: translateY(-50%);
-    
     border: 2px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
@@ -135,14 +134,16 @@
     position: relative;
     color: black;
     background-color: #f9f9f9;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
+    height:80px;
 }
 .button{
     background-color: #101010;
     color: white;
-    width: 100%;
-    padding: 10px;
+    width: 100px;
+    padding: 8px;
+    margin: 8px;
     border: none;
     border-radius: 4px;
     font-size: 16px;
@@ -186,4 +187,30 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.no_data{
+    text-align: center;
+    color: black;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.form_tbodybutton{
+    margin: 0;
+    padding: 0;
+    width: 80px;
+    background: white;
+}
+
+.page {
+    color: black;
+    font-weight: bold;
+}
+
+/* Rent.module.css */
+.disabled_button {
+    background-color: #ccc; /* 更改按鈕的背景顏色為灰色 */
+    cursor: not-allowed; /* 更改游標樣式為禁止 */
+    opacity: 0.6; /* 設置按鈕的透明度 */
 }

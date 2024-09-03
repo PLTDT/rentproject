@@ -10,7 +10,7 @@ const RentForm = () => {
     const [error, setError] = useState(null); // State to store errors
     const [isLoading, setIsLoading] = useState(true); // State to handle loading
     const [currentPage, setCurrentPage] = useState(1); // State to manage the current page
-    const recordsPerPage = 7; // Number of records per page
+    const recordsPerPage = 5; // Number of records per page
 
     const user = JSON.parse(localStorage.getItem('user'));
     const cemail = user.email;
@@ -29,11 +29,9 @@ const RentForm = () => {
                 setIsLoading(false); // Set loading to false when data is fetched
             }
         };
-        
-    
+
         fetchData();
     }, [cemail]);
-    
 
     const handleRowClick = (rowData) => {
         if (!rowData.deleted) {
@@ -102,32 +100,42 @@ const RentForm = () => {
                                     </tr>
                                 </thead>
                                 <tbody className={rent.form_tbody}>
-                                    {currentData.map((item) => (
-                                        <tr key={item.formid} className={item.isdeleted ? rent.deleted_row : ''}>
-                                            <td className={rent.form_tbody}>{item.rentplace}</td>
-                                            <td className={rent.form_tbody}>{item.returnplace}</td>
-                                            <td className={rent.form_tbody}>{item.rentdate}</td>
-                                            <td className={rent.form_tbody}>{item.returndate}</td>
-                                            <td className={rent.form_tbody}>{item.carbrand}</td>
-                                            <td className={rent.form_tbody}>{item.passenger}</td>
-                                            <td className={rent.form_tbody}>{item.customername}</td>
-                                            <td className={rent.form_tbody}>{item.customeremail}</td>
-                                            <td className={rent.form_tbody}>{item.paystatus}</td>
-                                            <td className={rent.form_tbody}>{item.isdeleted ? '已取消' : '有效'}</td>
-                                            <td>
-                                            {item.paystatus !== '已付款' && !item.isdeleted && (
-                                                <>
-                                                    <button className={rent.button} onClick={() => handleRowClick(item)}>
+                                    {currentData.length > 0 ? (
+                                        currentData.map((item) => (
+                                            <tr key={item.formid} className={item.isdeleted ? rent.deleted_row : ''}>
+                                                <td className={rent.form_tbody}>{item.rentplace}</td>
+                                                <td className={rent.form_tbody}>{item.returnplace}</td>
+                                                <td className={rent.form_tbody}>{item.rentdate}</td>
+                                                <td className={rent.form_tbody}>{item.returndate}</td>
+                                                <td className={rent.form_tbody}>{item.carbrand}</td>
+                                                <td className={rent.form_tbody}>{item.passenger}</td>
+                                                <td className={rent.form_tbody}>{item.customername}</td>
+                                                <td className={rent.form_tbody}>{item.customeremail}</td>
+                                                <td className={rent.form_tbody}>{item.paystatus}</td>
+                                                <td className={rent.form_tbody}>{item.isdeleted ? '取消狀態' : '有效狀態'}</td>
+                                                <td className={rent.form_tbodybutton}>
+                                                    <button
+                                                        className={`${rent.button} ${item.isdeleted ? rent.disabled_button : ''}`}
+                                                        onClick={() => handleRowClick(item)}
+                                                        disabled={item.isdeleted}
+                                                    >
                                                         結帳
                                                     </button>
-                                                    <button className={rent.button} onClick={() => deleteaction(item.formid)}>
+                                                    <button
+                                                        className={`${rent.button} ${item.isdeleted ? rent.disabled_button : ''}`}
+                                                        onClick={() => deleteaction(item.formid)}
+                                                        disabled={item.isdeleted}
+                                                    >
                                                         取消訂單
                                                     </button>
-                                                </>
-                                            )}
-                                            </td>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    ) : (
+                                        <tr>
+                                            <td colSpan="10" className={rent.no_data}>無訂單記錄</td>
                                         </tr>
-                                    ))}
+                                    )}
                                 </tbody>
                             </table>
 
@@ -136,7 +144,7 @@ const RentForm = () => {
                                 <button className={rent.prebutton} onClick={prevPage} disabled={currentPage === 1}>
                                     前一頁
                                 </button>
-                                <span>Page {currentPage} of {totalPages}</span>
+                                <span className={rent.page}>Page {currentPage} of {totalPages}</span>
                                 <button className={rent.nextbutton} onClick={nextPage} disabled={currentPage === totalPages}>
                                     下一頁
                                 </button>
