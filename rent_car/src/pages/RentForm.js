@@ -34,7 +34,7 @@ const RentForm = () => {
     }, [cemail]);
 
     const handleRowClick = (rowData) => {
-        if (!rowData.deleted) {
+        if (!rowData.isdeleted && rowData.paystatus !== '已付款') {
             navigate('/Pay', { state: { rowData } });
         }
     };
@@ -111,20 +111,21 @@ const RentForm = () => {
                                                 <td className={rent.form_tbody}>{item.passenger}</td>
                                                 <td className={rent.form_tbody}>{item.customername}</td>
                                                 <td className={rent.form_tbody}>{item.customeremail}</td>
-                                                <td className={rent.form_tbody}>{item.paystatus}</td>
-                                                <td className={rent.form_tbody}>{item.isdeleted ? '取消狀態' : '有效狀態'}</td>
+                                                <td className={rent.form_tbody}>
+                                                    {item.paystatus}
+                                                </td>
                                                 <td className={rent.form_tbodybutton}>
                                                     <button
-                                                        className={`${rent.button} ${item.isdeleted ? rent.disabled_button : ''}`}
+                                                        className={`${rent.button} ${item.isdeleted || item.paystatus === '已付款' ? rent.disabled_button : ''}`}
                                                         onClick={() => handleRowClick(item)}
-                                                        disabled={item.isdeleted}
+                                                        disabled={item.isdeleted || item.paystatus === '已付款'}
                                                     >
                                                         結帳
                                                     </button>
                                                     <button
-                                                        className={`${rent.button} ${item.isdeleted ? rent.disabled_button : ''}`}
+                                                        className={`${rent.button} ${item.isdeleted || item.paystatus === '已付款' ? rent.disabled_button : ''}`}
                                                         onClick={() => deleteaction(item.formid)}
-                                                        disabled={item.isdeleted}
+                                                        disabled={item.isdeleted || item.paystatus === '已付款'}
                                                     >
                                                         取消訂單
                                                     </button>

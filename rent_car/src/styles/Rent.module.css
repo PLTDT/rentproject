@@ -160,6 +160,7 @@
 .deleted_row {
     text-decoration: line-through;
     opacity: 0.6; /* Optional: To make the text slightly faded */
+    color: black;
 }
 .pagination {
     display: flex;
@@ -194,13 +195,14 @@
     color: black;
     padding: 10px;
     font-weight: bold;
+    width: 1200px;
 }
 
 .form_tbodybutton{
     margin: 0;
     padding: 0;
     width: 80px;
-    background: white;
+    background: #f9f9f9;
 }
 
 .page {
