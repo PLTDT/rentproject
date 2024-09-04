@@ -2,13 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Section1 from './components/Section1';
-import Cars from './cars';
-import OrderInfo from './components/OrderInfo';
-import Membership from './components/Membership';
-import EmployeesInfo from './components/EmployeesInfo';
+import Backlogin from './components/backlogin';
 import OrderInfoPage from './pages/OrderInfoPage';
 import MembershipPage from './pages//MembershipPage';
 import EmployeeInfoPage from './pages//EmployeeInfoPage';
@@ -19,7 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <Routes>
-      <Route path="/" element={<DashboardInfoPage />} />
+      <Route path="/" element={<Backlogin />} />
       <Route path="/DashboardInfoPage" element={<DashboardInfoPage />} />
       <Route path="/OrderInfoPage" element={<OrderInfoPage />} />
       <Route path="/MembershipPage" element={<MembershipPage />} />

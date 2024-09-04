@@ -77,6 +77,23 @@ const BackstagechangeComponent = () => {
               回前台
             </button>
           </li>
+          <li>
+              <button
+                className={activeSection === 'orders' ? Backstagechange.active : ''}
+                onClick={() => {
+                  // 清除登入時存儲的使用者資料
+                  localStorage.removeItem('username');
+                  
+                  // 導向登入頁面
+                  navigate('/'); 
+
+                  // 可選：如果你有 `setActiveSection` 來追踪頁面狀態，也可以重置這個狀態
+                  setActiveSection('backlogin');
+                }}
+              >
+                登出
+              </button>
+            </li>
         </ul>
       </aside>
       <div className={Backstagechange.content}>
