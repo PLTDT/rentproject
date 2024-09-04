@@ -16,7 +16,7 @@ import PaymentResult from './pages/PaymentResult';
 import MemberInfoPage from './pages/MemberInfoPage';
 import ServiceAddressPage from './pages/ServiceAddressPage';
 import ServiceAddressPageIn from './pages/ServiceAddressPageIn';
-import LinePayResult from './components/LinePayResult';
+import LinePayResult from './components/LinePayResult'; 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
