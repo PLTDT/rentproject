@@ -15,7 +15,7 @@ const Login = ({ closeLogin }) => {
         event.preventDefault(); // 防止表單默認行為（刷新頁面）
         try {
             // 發送 POST 請求進行登入
-            const response = await axios.post("http://tongbro.ddns.net:8080/api/v1/employee/loginaction", {
+            const response = await axios.post("https://tongbro.ddns.net:8080/api/v1/employee/loginaction", {
                 email: email,
                 password: password,
             });
