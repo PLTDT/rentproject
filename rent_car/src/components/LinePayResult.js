@@ -52,16 +52,19 @@ const LinePayResult = () => {
     return (
         <div>
             <PageHeaderIn />
-            <h1>LinePayResult</h1>
             {loading ? (
                 <p>Loading...</p>
             ) : error ? (
                 <p>Error: {error}</p>
             ) : (
-                <div>
-                    <h2 className={paymentResult.title}>付款結果</h2>
-                    <p className={paymentResult.title}>付款成功! 交易單號: {transactionId}</p>
-                    <p className={paymentResult.title}>訂單編號: {formid}</p>
+                <div className={paymentResult.info_bg}>
+                    <div className={paymentResult.container}>
+                        <h2 className={paymentResult.info_title}>付款結果</h2>
+                        <div className={paymentResult.info_item}>
+                            <p>交易單號: {transactionId}</p>
+                            <p>訂單號: {formid}</p>
+                        </div>
+                    </div>
                 </div>
             )}
             <FooterIn />

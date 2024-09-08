@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import rent from "../styles/Rent.module.css";
 import axios from "axios";
 
@@ -18,6 +19,16 @@ const CarBookingForm = () => {
     const [customername] = useState(cname); // 貴賓姓名
     const [customeremail] = useState(cemail); // 貴賓信箱
     const [error, setError] = useState(""); // 錯誤訊息
+    const location = useLocation(); // 取得 URL 查詢參數
+      // 解析 URL 中的查詢參數
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const carTitle = params.get("carTitle");
+
+        if (carTitle) {
+            setCarbrand(decodeURIComponent(carTitle)); // 解碼帶有空格的參數
+        }
+    }, [location]);
 
     // 處理表單提交事件
     async function bookingaction(event) {

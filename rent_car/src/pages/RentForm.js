@@ -10,7 +10,7 @@ const RentForm = () => {
     const [error, setError] = useState(null); // State to store errors
     const [isLoading, setIsLoading] = useState(true); // State to handle loading
     const [currentPage, setCurrentPage] = useState(1); // State to manage the current page
-    const recordsPerPage = 7; // Number of records per page
+    const recordsPerPage = 5; // Number of records per page
 
     const user = JSON.parse(localStorage.getItem('user'));
     const cemail = user.email;
@@ -30,11 +30,13 @@ const RentForm = () => {
             }
         };
 
-        fetchData(); // Call the function when the component mounts
+        fetchData();
     }, [cemail]);
 
     const handleRowClick = (rowData) => {
-        navigate('/Pay', { state: { rowData } });
+        if (!rowData.isdeleted && rowData.paystatus !== '已付款') {
+            navigate('/Pay', { state: { rowData } });
+        }
     };
 
     async function deleteaction(formid) {
@@ -86,44 +88,55 @@ const RentForm = () => {
                                 <thead>
                                     <tr>
                                         <th className={rent.form_thead}>租車地點</th>
-                                        <th className={rent.form_thead}>還車地點</th>
+                                        <th className={`${rent.form_thead} d-none d-md-table-cell`}>還車地點</th>
                                         <th className={rent.form_thead}>租車日期</th>
-                                        <th className={rent.form_thead}>還車日期</th>
+                                        <th className={`${rent.form_thead} d-none d-md-table-cell`}>還車日期</th>
                                         <th className={rent.form_thead}>車型</th>
-                                        <th className={rent.form_thead}>人數</th>
+                                        <th className={`${rent.form_thead} d-none d-md-table-cell`}>人數</th>
                                         <th className={rent.form_thead}>貴賓姓名</th>
-                                        <th className={rent.form_thead}>貴賓信箱</th>
+                                        <th className={`${rent.form_thead} d-none d-md-table-cell`}>貴賓信箱</th>
                                         <th className={rent.form_thead}>狀態</th>
                                         <th className={rent.form_thead}>操作</th>
                                     </tr>
                                 </thead>
                                 <tbody className={rent.form_tbody}>
-                                    {currentData.map((item) => (
-                                        <tr key={item.formid} className={item.isdeleted ? rent.deleted_row : ''}>
-                                            <td className={rent.form_tbody}>{item.rentplace}</td>
-                                            <td className={rent.form_tbody}>{item.returnplace}</td>
-                                            <td className={rent.form_tbody}>{item.rentdate}</td>
-                                            <td className={rent.form_tbody}>{item.returndate}</td>
-                                            <td className={rent.form_tbody}>{item.carbrand}</td>
-                                            <td className={rent.form_tbody}>{item.passenger}</td>
-                                            <td className={rent.form_tbody}>{item.customername}</td>
-                                            <td className={rent.form_tbody}>{item.customeremail}</td>
-                                            <td className={rent.form_tbody}>{item.paystatus}</td>
-                                            <td className={rent.form_tbody}>{item.isdeleted ? '已取消' : '有效'}</td>
-                                            <td>
-                                            {item.paystatus !== '已付款' && !item.isdeleted && (
-                                                <>
-                                                    <button className={rent.button} onClick={() => handleRowClick(item)}>
+                                    {currentData.length > 0 ? (
+                                        currentData.map((item) => (
+                                            <tr key={item.formid} className={item.isdeleted ? rent.deleted_row : ''}>
+                                                <td className={rent.form_tbody}>{item.rentplace}</td>
+                                                <td className={`${rent.form_tbody} d-none d-md-table-cell`}>{item.returnplace}</td>
+                                                <td className={rent.form_tbody}>{item.rentdate}</td>
+                                                <td className={`${rent.form_tbody} d-none d-md-table-cell`}>{item.returndate}</td>
+                                                <td className={rent.form_tbody}>{item.carbrand}</td>
+                                                <td className={`${rent.form_tbody} d-none d-md-table-cell`}>{item.passenger}</td>
+                                                <td className={rent.form_tbody}>{item.customername}</td>
+                                                <td className={`${rent.form_tbody} d-none d-md-table-cell`}>{item.customeremail}</td>
+                                                <td className={rent.form_tbody}>
+                                                    {item.paystatus}
+                                                </td>
+                                                <td className={rent.form_tbodybutton}>
+                                                    <button
+                                                        className={`${rent.button} ${item.isdeleted || item.paystatus === '已付款' ? rent.disabled_button : ''}`}
+                                                        onClick={() => handleRowClick(item)}
+                                                        disabled={item.isdeleted || item.paystatus === '已付款'}
+                                                    >
                                                         結帳
                                                     </button>
-                                                    <button className={rent.button} onClick={() => deleteaction(item.formid)}>
+                                                    <button
+                                                        className={`${rent.button} ${item.isdeleted || item.paystatus === '已付款' ? rent.disabled_button : ''}`}
+                                                        onClick={() => deleteaction(item.formid)}
+                                                        disabled={item.isdeleted || item.paystatus === '已付款'}
+                                                    >
                                                         取消訂單
                                                     </button>
-                                                </>
-                                            )}
-                                            </td>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    ) : (
+                                        <tr>
+                                            <td colSpan="10" className={rent.no_data}>無訂單記錄</td>
                                         </tr>
-                                    ))}
+                                    )}
                                 </tbody>
                             </table>
 
@@ -132,7 +145,7 @@ const RentForm = () => {
                                 <button className={rent.prebutton} onClick={prevPage} disabled={currentPage === 1}>
                                     前一頁
                                 </button>
-                                <span>Page {currentPage} of {totalPages}</span>
+                                <span className={rent.page}>Page {currentPage} of {totalPages}</span>
                                 <button className={rent.nextbutton} onClick={nextPage} disabled={currentPage === totalPages}>
                                     下一頁
                                 </button>

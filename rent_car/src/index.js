@@ -17,6 +17,11 @@ import MemberInfoPage from './pages/MemberInfoPage';
 import ServiceAddressPage from './pages/ServiceAddressPage';
 import ServiceAddressPageIn from './pages/ServiceAddressPageIn';
 import LinePayResult from './components/LinePayResult';
+import CarMenu from './pages/CarMenu';
+import CarMenuIn from './pages/CarMenuIn';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Testbootstrap from './pages/testbootstrap';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,6 +31,7 @@ root.render(
             <Route path="/HomePage" element={<HomePage />} />
             <Route path="/About" element={<About />} />
             <Route path="/Login" element={<Login />} />
+            <Route path="/CarMenu" element={<CarMenu />} />
             <Route path="/HomePageIn" element={<PrivateRoute element={<HomePageIn />} />} />
             <Route path="/AboutIn" element={<PrivateRoute element={<AboutIn />} />} />
             <Route path="/Rent" element={<PrivateRoute element={<RentPage />} />} />
@@ -36,6 +42,8 @@ root.render(
             <Route path='/ServiceAddressPage' element={<ServiceAddressPage />} />
             <Route path='/ServiceAddressPageIn' element={<PrivateRoute element={<ServiceAddressPageIn />}/>} />
             <Route path='/LinePayResult' element={<PrivateRoute element={<LinePayResult />}/>} />
+            <Route path="/CarMenuIn" element={<PrivateRoute element={<CarMenuIn />}/>} />
+            <Route path="/Testbootstrap" element={<Testbootstrap />} />
         </Routes>
     </Router>
 );
