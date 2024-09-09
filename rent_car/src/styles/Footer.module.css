@@ -7,6 +7,9 @@
   color: #fff; /* 文字顏色 */
   width: 100%;
 }
+.row{
+  width: 100%;
+}
 /* 主要容器樣式 */
 .box {
   padding-top: 20px;
