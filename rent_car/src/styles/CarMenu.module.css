@@ -39,7 +39,7 @@
 }
 .card{
     height: 100%;
-    overflow: hidden;
+    margin-top: 50px;
 }
 .carimg{
     width: 100%;
@@ -74,7 +74,7 @@
 .cartitle{
     color:black;
     text-align: center;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: normal;
 }
 .carword{
@@ -102,9 +102,11 @@
     left: 50%;
     transform: translateX(-50%);
     cursor: pointer;
+    border-radius: 8px;
 }
-@media screen and (max-width: 768px) {
+@media screen and(min-width: 768px) {
     .card{
-        margin-top: 50px;
+        margin: 20px;
+        flex: 0 0 calc(25% - 40px);
     }
-}
+}  

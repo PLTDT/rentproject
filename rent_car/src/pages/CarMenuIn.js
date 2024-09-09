@@ -14,7 +14,8 @@ const CarMenuIn = () => {
     <div>
         <PageHeaderIn/>
         <div className={carmenu.bg}>
-            <div className="container">
+            <div className={carmenu.container}>
+                <div className={carmenu.box}>
                 <div className={carmenu.title}>車款介紹</div>
                     <div className="row">
                         <div className={`${carmenu.card} col-12 col-md-6 col-lg-3`} >
@@ -46,6 +47,7 @@ const CarMenuIn = () => {
                             <button className={carmenu.btn} onClick={() => handleBookingClick('NISSAN LIVINA')}>立即預訂</button>
                         </div>
                 </div>
+            </div>
             </div>
         </div>
         <FooterIn/>

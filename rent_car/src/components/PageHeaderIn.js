@@ -84,19 +84,19 @@ const PageHeaderIn = () => {
                             
                                 <ul>
                                     <li className={pheader.hammenu}>
-                                        <Link to="/HomePage" className={pheader.hamlink}>首頁</Link>
+                                        <Link to="/HomePageIn" className={pheader.hamlink}>首頁</Link>
                                     </li>
                                     <li className={pheader.hammenu}>
-                                        <Link to="/About" className={pheader.hamlink}>關於我們</Link>
+                                        <Link to="/AboutIn" className={pheader.hamlink}>關於我們</Link>
                                     </li>
                                     <li className={pheader.hammenu}>
                                         <Link to="/Rent"  className={pheader.hamlink}>租車服務</Link>
                                     </li>
                                     <li className={pheader.hammenu}>
-                                        <Link to="/CarMenu" className={pheader.hamlink}>車款介紹</Link>
+                                        <Link to="/CarMenuIn" className={pheader.hamlink}>車款介紹</Link>
                                     </li>
                                     <li className={pheader.hammenu}>
-                                        <Link to="/ServiceAddressPage" className={pheader.hamlink}>服務據點</Link>
+                                        <Link to="/ServiceAddressPageIn" className={pheader.hamlink}>服務據點</Link>
                                     </li>
                                     <button className={pheader.hamsignbt} onClick={handleLogout}>
                                         登出
