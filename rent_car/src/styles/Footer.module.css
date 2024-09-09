@@ -7,6 +7,9 @@
   color: #fff; /* 文字顏色 */
   width: 100%;
 }
+.container{
+  width: 100%;
+}
 .row{
   width: 100%;
 }

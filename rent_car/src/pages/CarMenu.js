@@ -6,7 +6,7 @@ import carmenu from "../styles/CarMenu.module.css";
 const CarMenu = () => {
     const handleServiceClick = (event) => {
         // 阻止默認的連結行為
-        event.preventDefault();
+        //event.preventDefault();
         // 使用 alert 來提示用戶
         alert("請先登入");
     };
@@ -14,7 +14,7 @@ const CarMenu = () => {
         <div>
         <PageHeader/>
         <div className={carmenu.bg}>
-            <div className="container">
+            <div className={carmenu.container}>
                 <div className={carmenu.box}>
                 <div className={carmenu.title}>車款介紹</div>
                     <div className="row">
