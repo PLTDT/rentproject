@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .section1 {
     width: 100%;
 }
@@ -10,41 +13,42 @@
     background-position: center center;
     position: relative;
 }
-
+.container{
+    position: relative;
+}
 .content {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
+    top:30px;
     text-align:left;
     color: #fff;
 }
 
 .content h1 {
-    font-size: 64px;
+    font-size: 32px;
     margin-top: 10px;
-    padding-left: 5%;
+    padding-left: 10%;
 }
 
 .content p {
-    font-size: 32px;
+    font-size: 20px;
     line-height: 10px;
-    padding-left: 5%;
+    padding-left: 10%;
+    margin-top: 20px;
 }
 
 .contentinfo {
-    width: 100%;
-    position: absolute;
-    top: 55%;
+    position: relative;
+    top:80px;
+    right:30px;
     text-align:right;
-    transform: translateY(-50%);
     color: #fff;
 }
 
 .contentinfo p {
     padding-right: 12%;
-    font-size: 32px;
+    font-size: 26px;
     height: 100px;
+    text-align: right;
 }
 
 .contentinfosp span {
@@ -55,4 +59,31 @@
 
 .sp {
     font-size: 40px;
+}
+@media screen and (max-width: 992px) {
+    .contentinfo p {
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .content h1 {
+        font-size: 30px;
+    }
+    .contentinfo p {
+        font-size: 24px;
+    }
+    .contentinfosp span {
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .content h1 {
+        font-size: 28px;
+    }
+    .contentinfo p {
+        font-size: 20px;
+    }
+    .contentinfosp span {
+        font-size: 20px;
+    }
 }

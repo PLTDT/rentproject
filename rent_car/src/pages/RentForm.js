@@ -88,13 +88,13 @@ const RentForm = () => {
                                 <thead>
                                     <tr>
                                         <th className={rent.form_thead}>租車地點</th>
-                                        <th className={rent.form_thead}>還車地點</th>
+                                        <th className={`${rent.form_thead} d-none d-md-table-cell`}>還車地點</th>
                                         <th className={rent.form_thead}>租車日期</th>
-                                        <th className={rent.form_thead}>還車日期</th>
+                                        <th className={`${rent.form_thead} d-none d-md-table-cell`}>還車日期</th>
                                         <th className={rent.form_thead}>車型</th>
-                                        <th className={rent.form_thead}>人數</th>
+                                        <th className={`${rent.form_thead} d-none d-md-table-cell`}>人數</th>
                                         <th className={rent.form_thead}>貴賓姓名</th>
-                                        <th className={rent.form_thead}>貴賓信箱</th>
+                                        <th className={`${rent.form_thead} d-none d-md-table-cell`}>貴賓信箱</th>
                                         <th className={rent.form_thead}>狀態</th>
                                         <th className={rent.form_thead}>操作</th>
                                     </tr>
@@ -104,13 +104,13 @@ const RentForm = () => {
                                         currentData.map((item) => (
                                             <tr key={item.formid} className={item.isdeleted ? rent.deleted_row : ''}>
                                                 <td className={rent.form_tbody}>{item.rentplace}</td>
-                                                <td className={rent.form_tbody}>{item.returnplace}</td>
+                                                <td className={`${rent.form_tbody} d-none d-md-table-cell`}>{item.returnplace}</td>
                                                 <td className={rent.form_tbody}>{item.rentdate}</td>
-                                                <td className={rent.form_tbody}>{item.returndate}</td>
+                                                <td className={`${rent.form_tbody} d-none d-md-table-cell`}>{item.returndate}</td>
                                                 <td className={rent.form_tbody}>{item.carbrand}</td>
-                                                <td className={rent.form_tbody}>{item.passenger}</td>
+                                                <td className={`${rent.form_tbody} d-none d-md-table-cell`}>{item.passenger}</td>
                                                 <td className={rent.form_tbody}>{item.customername}</td>
-                                                <td className={rent.form_tbody}>{item.customeremail}</td>
+                                                <td className={`${rent.form_tbody} d-none d-md-table-cell`}>{item.customeremail}</td>
                                                 <td className={rent.form_tbody}>
                                                     {item.paystatus}
                                                 </td>

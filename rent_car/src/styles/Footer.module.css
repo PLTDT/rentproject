@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .footer {
   background: #1b1a1a; /* 背景顏色 */
   padding-top: 50px; /* 上方內邊距 */
@@ -5,19 +8,25 @@
   width: 100%;
 }
 
-/* 主要容器樣式 */
 .container {
-  padding-top: 20px;
-  width: 100%;
-  max-width: 1140px;
-  margin: auto; /* 自動外邊距，居中對齊 */
-  display: flex; /* 使用 Flexbox 佈局 */
-  justify-content: center; /* 垂直置中 */
+  width: 100%; /* 最大寬度 */
 }
 
+.row{
+  width: 100%;
+}
+/* 主要容器樣式 */
+.box {
+  padding-top: 20px;
+  width: 100%;
+  margin: auto; /* 自動外邊距，居中對齊 */
+  display: flex;
+  justify-content: center;
+}
 /* 每個內容區塊樣式 */
 .footerContent {
-  width: 33.3%; /* 每個區塊寬度 */
+   /* 每個區塊寬度 */
+  padding: 30px;
 }
 
 /* 標題樣式 */
@@ -33,6 +42,7 @@ h3 {
   width: 100%; /* 文字區域寬度 */
   margin: 0; /* 自動外邊距，居中對齊 */
   padding: 7px; /* 內邊距 */
+  font-size: 15px;
 }
 
 /* 列表樣式 */
@@ -44,6 +54,7 @@ h3 {
 
 .lista {
   text-decoration: none;
+  color:white;
 }
 
 /* 列表項目樣式 */
@@ -121,4 +132,12 @@ h3 {
   margin: 0; /* 去除外邊距 */
   font-size: 16px; /* 字體大小 */
   padding: 7px; /* 內邊距 */
+}
+
+@media screen and (min-width: 2992px) {
+  .footerContent {
+    margin-left: 20px;
+    margin-right: 20px;
+    flex: 0 0 calc(33.33% - 40px); /* 減去兩邊的 margin 確保寬度不超過 100% */
+  }
 }

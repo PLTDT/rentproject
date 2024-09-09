@@ -2,6 +2,14 @@ import React from "react";
 import header from "../styles/Header.module.css";
 
 const Header = () => {
+
+    const handleServiceClick = (event) => {
+        // 阻止默認的連結行為
+        event.preventDefault();
+        // 使用 alert 來提示用戶
+        alert("請先登入");
+    };
+
     return (
         <header className={header.header}>
             <div className={header.banner}>
@@ -14,10 +22,10 @@ const Header = () => {
                     </p>
                     <div>
                         <button className={header.bt} type="button">
-                            <span className={header.btsp}></span>查看更多
+                            <a href="/CarMenu" className={header.bta}><span className={header.btsp}></span>查看更多</a>
                         </button>
                         <button className={header.bt} type="button">
-                            <span className={header.btsp}></span>訂閱我們
+                            <a href="/Rent" className={header.bta}><span className={header.btsp} onClick={handleServiceClick}></span>立即預訂</a>
                         </button>
                     </div>
                 </div>
