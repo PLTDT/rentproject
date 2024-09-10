@@ -120,8 +120,7 @@
 }
 
 .welcome {
-  position: absolute;
-  left:10%;
+  position: relative;
   border: 2px solid #009688;
   padding: 10px;
   border-radius: 10px;
