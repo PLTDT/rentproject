@@ -9,7 +9,7 @@ const EmployeeInfo = () => {
 
   useEffect(() => {
     if (activeSection === 'employeeInfo') {
-      fetch('http://localhost:8080/daniel3/getallemployee3') // 假設此 API 返回所有員工信息
+      fetch('https://tongbro.ddns.net:8080/daniel3/getallemployee3') // 假設此 API 返回所有員工信息
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');

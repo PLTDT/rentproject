@@ -71,7 +71,7 @@ const BackstagechangeComponent = () => {
             <button
               className={activeSection === 'home' ? styles.active : ''}
               onClick={() => {
-                window.location.href = 'http://localhost:3000/HomePage';
+                window.location.href = 'https://tongbro.ddns.net:443/HomePage';
               }}
             >
               回前台

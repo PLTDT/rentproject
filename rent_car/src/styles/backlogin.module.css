@@ -30,6 +30,10 @@
   margin-bottom: 20px;
 }
 
+.input {
+  color: black;
+}
+
 .input_group {
   margin-bottom: 15px;
   text-align: justify;

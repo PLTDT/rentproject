@@ -11,7 +11,7 @@ const Membership = () => {
 
   useEffect(() => {
     if (activeSection === 'members') {
-      fetch('http://localhost:8080/daniel2/getallorders2')
+      fetch('https://tongbro.ddns.net:8080/daniel2/getallorders2')
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');

@@ -11,7 +11,7 @@ const OrderInfoComponent = () => {
 
   useEffect(() => {
     if (activeSection === 'orders') {
-      fetch('http://localhost:8080/daniel/getallorders')
+      fetch('https://tongbro.ddns.net:8080/daniel/getallorders')
         .then(response => {
           if (!response.ok) {
             throw new Error('網路回應不正確');
@@ -35,7 +35,7 @@ const OrderInfoComponent = () => {
   };
 
   const handleDelete = (form_id) => {
-    fetch(`http://localhost:8080/daniel/deleteorder/${form_id}`, {
+    fetch(`https://tongbro.ddns.net:8080/daniel/deleteorder/${form_id}`, {
       method: 'DELETE',
     })
       .then(response => {

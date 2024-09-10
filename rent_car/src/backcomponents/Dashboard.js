@@ -14,15 +14,15 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const memberResponse = await fetch('http://localhost:8080/daniel2/getallorders2');
+        const memberResponse = await fetch('https://tongbro.ddns.net:8080/daniel2/getallorders2');
         const memberData = await memberResponse.json();
         setMembers(memberData);
 
-        const employeeResponse = await fetch('http://localhost:8080/daniel3/getallemployee3');
+        const employeeResponse = await fetch('https://tongbro.ddns.net:8080/daniel3/getallemployee3');
         const employeeData = await employeeResponse.json();
         setEmployees(employeeData);
 
-        const orderResponse = await fetch('http://localhost:8080/daniel/getallorders');
+        const orderResponse = await fetch('https://tongbro.ddns.net:8080/daniel/getallorders');
         const orderData = await orderResponse.json();
         setOrders(orderData);
         setFilteredOrders(orderData);

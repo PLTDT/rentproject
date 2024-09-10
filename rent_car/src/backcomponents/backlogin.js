@@ -17,7 +17,7 @@ const Login = () => {
     };
   
     try {
-      const response = await fetch('http://localhost:8080/daniel5/login', {
+      const response = await fetch('https://tongbro.ddns.net:8080/daniel5/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,6 +53,7 @@ const Login = () => {
           <div className={styles.input_group}>
             <label htmlFor="username">帳號</label>
             <input
+              className={styles.input}
               type="text"
               id="username"
               value={username}
@@ -63,6 +64,7 @@ const Login = () => {
           <div className={styles.input_group}>
             <label htmlFor="password">密碼</label>
             <input
+              className={styles.input}
               type="password"
               id="password"
               value={password}
