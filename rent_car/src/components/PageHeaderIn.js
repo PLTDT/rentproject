@@ -1,4 +1,4 @@
-import React ,{useState}from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import pheader from "../styles/PageHeader.module.css";
 
@@ -16,15 +16,19 @@ const PageHeaderIn = () => {
         alert("登出成功");
         navigate("/HomePage");
     };
+
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen); // 切換漢堡選單狀態
-        console.log("isNavOpen:", !isNavOpen); // Check state changes
+    };
+
+    const closeNav = () => {
+        setIsNavOpen(false); // 自動關閉漢堡選單
     };
 
     return (
         <header className={pheader.header}>
             <div className={pheader.banner}>
-                <Link to="/HomePageIn">
+                <Link to="/HomePageIn" onClick={closeNav}>
                     <img
                         src={require("../assets/logo.png")}
                         alt="背景圖"
@@ -38,34 +42,34 @@ const PageHeaderIn = () => {
                         <div className={pheader.line}></div>
                     </button>
                 </div>
-                <div className={pheader.navbar}>
+                <div className={`${pheader.navbar} ${isNavOpen ? pheader.show : ''}`}>
                     <ul>
                         <li className={pheader.menu}>
-                            <Link to="/HomePageIn">首頁</Link>
+                            <Link to="/HomePageIn" onClick={closeNav}>首頁</Link>
                         </li>
                         <li className={pheader.menu}>
-                            <Link to="/AboutIn">關於我們</Link>
+                            <Link to="/AboutIn" onClick={closeNav}>關於我們</Link>
                         </li>
                         <li className={pheader.menu}>
-                            <Link to="/Rent">租車服務</Link>
+                            <Link to="/Rent" onClick={closeNav}>租車服務</Link>
                         </li>
                         <li className={pheader.menu}>
-                            <Link to="/MemberInfoPage">會員資料</Link>
+                            <Link to="/MemberInfoPage" onClick={closeNav}>會員資料</Link>
                         </li>
                         <li className={pheader.menu}>
-                            <Link to="/RentHistory">訂單紀錄</Link>
+                            <Link to="/RentHistory" onClick={closeNav}>訂單紀錄</Link>
                         </li>
                         <li className={pheader.menu}>
-                            <Link to="/CarMenuIn">車款介紹</Link> {/* 使用 `#` 來處理空鏈接 */}
+                            <Link to="/CarMenuIn" onClick={closeNav}>車款介紹</Link>
                         </li>
                         <li className={pheader.menu}>
-                            <Link to="/ServiceAddressPageIn">服務據點</Link> {/* 使用 `#` 來處理空鏈接 */}
+                            <Link to="/ServiceAddressPageIn" onClick={closeNav}>服務據點</Link>
                         </li>
                     </ul>
                     <div className={pheader.welcome}>
-                    {user && (
-                                <span className={pheader.username}>歡迎 ~ {user.employeename}</span>
-                            )}
+                        {user && (
+                            <span className={pheader.username}>歡迎 ~ {user.employeename}</span>
+                        )}
                     </div>       
                     <div className={pheader.signbtdiv}>
                         <div className={pheader.signdiv}>
@@ -80,36 +84,35 @@ const PageHeaderIn = () => {
                     </div>
                 </div>
                 <div className={pheader.hamcontainer}>
-                        {isNavOpen ? (
-                            
-                                <ul>
-                                    <li className={pheader.hammenu}>
-                                        <Link to="/HomePageIn" className={pheader.hamlink}>首頁</Link>
-                                    </li>
-                                    <li className={pheader.hammenu}>
-                                        <Link to="/AboutIn" className={pheader.hamlink}>關於我們</Link>
-                                    </li>
-                                    <li className={pheader.hammenu}>
-                                        <Link to="/Rent"  className={pheader.hamlink}>租車服務</Link>
-                                    </li>
-                                    <li className={pheader.hammenu}>
-                                        <Link to="/MemberInfoPage"  className={pheader.hamlink}>會員資料</Link>
-                                    </li>
-                                    <li className={pheader.hammenu}>
-                                        <Link to="/RentHistory"  className={pheader.hamlink}>訂單紀錄</Link>
-                                    </li>
-                                    <li className={pheader.hammenu}>
-                                        <Link to="/CarMenuIn" className={pheader.hamlink}>車款介紹</Link>
-                                    </li>
-                                    <li className={pheader.hammenu}>
-                                        <Link to="/ServiceAddressPageIn" className={pheader.hamlink}>服務據點</Link>
-                                    </li>
-                                    <button className={pheader.hamsignbt} onClick={handleLogout}>
-                                        登出
-                                    </button>
-                                </ul>
-                        ) : null}
-                    </div>
+                    {isNavOpen && (
+                        <ul>
+                            <li className={pheader.hammenu}>
+                                <Link to="/HomePageIn" className={pheader.hamlink} onClick={closeNav}>首頁</Link>
+                            </li>
+                            <li className={pheader.hammenu}>
+                                <Link to="/AboutIn" className={pheader.hamlink} onClick={closeNav}>關於我們</Link>
+                            </li>
+                            <li className={pheader.hammenu}>
+                                <Link to="/Rent" className={pheader.hamlink} onClick={closeNav}>租車服務</Link>
+                            </li>
+                            <li className={pheader.hammenu}>
+                                <Link to="/MemberInfoPage" className={pheader.hamlink} onClick={closeNav}>會員資料</Link>
+                            </li>
+                            <li className={pheader.hammenu}>
+                                <Link to="/RentHistory" className={pheader.hamlink} onClick={closeNav}>訂單紀錄</Link>
+                            </li>
+                            <li className={pheader.hammenu}>
+                                <Link to="/CarMenuIn" className={pheader.hamlink} onClick={closeNav}>車款介紹</Link>
+                            </li>
+                            <li className={pheader.hammenu}>
+                                <Link to="/ServiceAddressPageIn" className={pheader.hamlink} onClick={closeNav}>服務據點</Link>
+                            </li>
+                            <button className={pheader.hamsignbt} onClick={handleLogout}>
+                                登出
+                            </button>
+                        </ul>
+                    )}
+                </div>
             </div>
         </header>
     );
