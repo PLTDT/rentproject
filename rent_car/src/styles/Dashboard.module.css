@@ -1,0 +1,101 @@
+/* 容器樣式 */
+.content {
+  margin-left: 20px;
+  padding: 20px;
+}
+
+.title {
+  color: black;
+  text-align: center;
+  font-size: 25px;
+  padding: 10px 10px;
+  font-weight: bold;
+}
+
+/* 篩選區域樣式 */
+.filterContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 100px;
+}
+
+.filterContainer label {
+  font-size: 18px;
+  margin-right: 10px;
+  color: black;
+}
+
+.filterContainer select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #e5e3e3;
+  border-radius: 4px;
+  background-color: #f4f4f4;
+  color: black;
+  cursor: pointer;
+}
+
+.filterContainer select option {
+  color: #333333;
+}
+
+.filterContainer select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* 儀表板容器樣式 */
+.dashboardContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px 80px 20px 120px;
+  gap: 5px;
+}
+
+.dashboardCard {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+  margin: 10px;
+}
+
+.dashboardCard h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: black;
+}
+
+.dashboardCard p {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+}
+
+/* 圖表行樣式 */
+.chartRow {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.ordersDashboard, .brandDashboard {
+  display: block;
+  box-sizing: border-box;
+  height: 300px;
+  width: 35%;
+  margin: 0 20px;
+}
+
+.ordersDashboard h2, .brandDashboard h2 {
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  margin-bottom: 20px;
+}
