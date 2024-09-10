@@ -120,12 +120,12 @@
 }
 
 .welcome {
-  position: absolute;
-  left:10%;
+  position: relative;
   border: 2px solid #009688;
   padding: 10px;
   border-radius: 10px;
 }
+
 .hamburger {
   position: absolute; /* 可以改為 relative 或其他方式來根據頁面布局調整 */
   top: 30px; /* 調整距離頂部的位置 */
