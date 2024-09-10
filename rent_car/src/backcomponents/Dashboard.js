@@ -16,6 +16,7 @@ const Dashboard = () => {
       try {
         const memberResponse = await fetch('http://localhost:8080/daniel2/getallorders2');
         const memberData = await memberResponse.json();
+        console.log('Members:', memberData); // Check if this is an array
         setMembers(memberData);
 
         const employeeResponse = await fetch('http://localhost:8080/daniel3/getallemployee3');
