@@ -64,7 +64,7 @@ const OrderInfoComponent = () => {
               <button onClick={handleSearch} className={OrderInfo.button}>搜尋訂單</button>
               <input 
                 type="text" 
-                className='input' 
+                className={OrderInfo.input} 
                 placeholder='請輸入訂單編號或會員名稱' 
                 value={searchTerm} 
                 onChange={e => setSearchTerm(e.target.value)} 
