@@ -93,6 +93,12 @@ const PageHeaderIn = () => {
                                         <Link to="/Rent"  className={pheader.hamlink}>租車服務</Link>
                                     </li>
                                     <li className={pheader.hammenu}>
+                                        <Link to="/MemberInfoPage"  className={pheader.hamlink}>會員資料</Link>
+                                    </li>
+                                    <li className={pheader.hammenu}>
+                                        <Link to="/RentHistory"  className={pheader.hamlink}>訂單紀錄</Link>
+                                    </li>
+                                    <li className={pheader.hammenu}>
                                         <Link to="/CarMenuIn" className={pheader.hamlink}>車款介紹</Link>
                                     </li>
                                     <li className={pheader.hammenu}>

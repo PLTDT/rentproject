@@ -61,6 +61,9 @@ const Pay = () => {
     async function payaction(event) {
         event.preventDefault();
         console.log("payaction method triggered");
+        console.log("formid:", formid);
+        console.log("total:", total); // 確認這裡的 total 值是否正確
+    
         setIsLoading(true);
         try {
             const response = await axios.get("http://localhost:8080/payment", {
@@ -88,6 +91,7 @@ const Pay = () => {
             setIsLoading(false);
         }
     }
+    
 
     async function linepayAction() {
         console.log("formid:", formid);

@@ -1,18 +1,21 @@
-.nav {
-    background-color: #f8f9fa;
+/* Navbar.css */
+.navbar {
+    background-color: #064772;
+    padding: 10px 0px;
+    color: white   !important ;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: black;
-}
+    width: 100%;
+  }
+  
+  .profile {
+    cursor: pointer;
+  }
 
-.nav ul {
-    display: flex;
-    padding: 0;
-    margin: 1rem 1rem;
-}
-
-.nav ul li {
-    list-style-type: none;
-    margin: 0 0.4rem;
-}
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+  

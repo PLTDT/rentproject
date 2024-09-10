@@ -40,17 +40,20 @@ const PaymentResult = () => {
     return (
         <div>
             <PageHeaderIn />
-            <h1>Payment Result</h1>
             {loading ? (
                 <p>Loading...</p>
             ) : error ? (
                 <p>Error: {error}</p>
             ) : (
-                <div>
-                    <h2 className={paymentResult.title}>付款結果</h2>
-                    <p className={paymentResult.title}>付款成功！交易單號: {merchantTradeNo}</p>
-                    <p className={paymentResult.title}>付款成功！訂單號: {formid}</p>
-                    <p className={paymentResult.title}>付款日期: {merchantTradeDate}</p>
+                <div className={paymentResult.info_bg}>
+                    <div className={paymentResult.container}>
+                        <h2 className={paymentResult.info_title}>付款結果</h2>
+                        <div className={paymentResult.info_item}>
+                            <p>交易單號: {merchantTradeNo}</p>
+                            <p>訂單號: {formid}</p>
+                            <p>付款日期: {merchantTradeDate}</p>
+                        </div>
+                    </div>
                 </div>
             )}
             <FooterIn />

@@ -49,31 +49,31 @@ const Footer = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div className={`${footer.footerContent} col-12 col-sm-4 col-md-4`}>
-                            <h3>追蹤我們</h3>
-                            <ul className={footer.socialIcons}>
-                                <li>
-                                    <a className={footer.faba} href=" ">
-                                        <i className="fab fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className={footer.faba} href=" ">
-                                        <i className="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className={footer.faba} href=" ">
-                                        <i className="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className={footer.faba} href=" ">
-                                        <i className="fab fa-line"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div className={`${footer.footerContent} col-12 col-sm-4 col-md-4`}>
+                        <h3>追蹤我們</h3>
+                        <ul className={footer.socialIcons}>
+                            <li>
+                                <a className={footer.faba} href=" ">
+                                    <i className="fab fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a className={footer.faba} href=" ">
+                                    <i className="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a className={footer.faba} href=" ">
+                                    <i className="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a className={footer.faba} href=" ">
+                                    <i className="fab fa-line"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     </div>
                 </div>
             </div>

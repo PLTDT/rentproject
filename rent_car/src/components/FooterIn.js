@@ -32,7 +32,14 @@ const Footer = () => {
                                     </a>
                                 </li>
                                 <li>
-                                    <a className={footer.lista} href="/MemberInfopage">會員資料</a>
+                                    <a className={footer.lista} href="/MemberInfopage">
+                                        會員資料
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className={footer.lista} href="RentHistory">
+                                        訂單紀錄
+                                    </a>
                                 </li>
                                 <li>
                                     <a className={footer.lista} href="/CarMenuIn">

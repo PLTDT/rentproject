@@ -31,53 +31,58 @@ const CarBookingForm = () => {
     }, [location]);
 
     // 處理表單提交事件
-    async function bookingaction(event) {
-        event.preventDefault(); // 防止表單默認行為（刷新頁面）
-        console.log("Submitting form...");
+    // 處理表單提交事件
+async function bookingaction(event) {
+    event.preventDefault(); // 防止表單默認行為（刷新頁面）
+    console.log("Submitting form...");
 
-        if (new Date(returndate) <= new Date(rentdate)) {
-            setError("還車日期必須晚於取車日期");
-            return;
-        }
-
-        try {
-            // 發送 POST 請求到後端 API
-            const response = await axios.post("http://localhost:8080/api/v1/rentform/rentcar", {
-                rentplace,
-                returnplace,
-                rentdate,
-                returndate,
-                carbrand,
-                passenger,
-                customername,
-                customeremail,
-            });
-
-            console.log("Response:", response);
-        
-            // 根據回應狀態顯示成功或錯誤訊息
-            if (response.status === 200) {
-                alert("租車成功");
-                // 清除表單內容
-                setRentplace("");
-                setReturnplace("");
-                setRentdate("");
-                setReturndate("");
-                setCarbrand("");
-                setPassenger("");
-                //setCustomername("");
-                //setCustomeremail("");
-                setError("");  // 清除錯誤訊息
-            } else {
-                setError("發生錯誤");
-            }
-        } catch (error) {
-            console.error("發生錯誤", error);
-            // 根據錯誤響應設置錯誤訊息
-            const errorMessage = error.response?.data?.message || error.message;
-            setError(`發生錯誤，請稍後再試: ${errorMessage}`);
-        }
+    if (new Date(returndate) <= new Date(rentdate)) {
+        setError("還車日期必須晚於取車日期");
+        return;
     }
+
+    try {
+        // 發送 POST 請求到後端 API
+        const response = await axios.post("http://localhost:8080/api/v1/rentform/rentcar", {
+            rentplace,
+            returnplace,
+            rentdate,
+            returndate,
+            carbrand,
+            passenger,
+            customername,
+            customeremail,
+        });
+
+        console.log("Response:", response);
+    
+        // 根據回應狀態顯示成功或錯誤訊息
+        if (response.status === 200) {
+            alert("租車成功");
+            // 清除表單內容
+            setRentplace("");
+            setReturnplace("");
+            setRentdate("");
+            setReturndate("");
+            setCarbrand("");
+            setPassenger("");
+            //setCustomername("");
+            //setCustomeremail("");
+            setError("");  // 清除錯誤訊息
+            
+            // 刷新頁面
+            window.location.reload();
+        } else {
+            setError("發生錯誤");
+        }
+    } catch (error) {
+        console.error("發生錯誤", error);
+        // 根據錯誤響應設置錯誤訊息
+        const errorMessage = error.response?.data?.message || error.message;
+        setError(`發生錯誤，請稍後再試: ${errorMessage}`);
+    }
+}
+
 
     // 返回表單 JSX
     return (

@@ -16,10 +16,11 @@
 /* 主要容器樣式 */
 .box {
   padding-top: 20px;
-  width: 100%;
+  width: 80%;
   margin: auto; /* 自動外邊距，居中對齊 */
   /*display: flex;
   justify-content: center;*/
+
 }
 /* 每個內容區塊樣式 */
 .footerContent {
@@ -139,3 +140,4 @@ h3 {
     flex: 0 0 calc(33.33% - 40px); /* 減去兩邊的 margin 確保寬度不超過 100% 
   }
 }*/
+
