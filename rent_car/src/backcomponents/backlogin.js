@@ -53,6 +53,7 @@ const Login = () => {
           <div className={styles.input_group}>
             <label htmlFor="username">帳號</label>
             <input
+            className={styles.input}
               type="text"
               id="username"
               value={username}
@@ -63,6 +64,7 @@ const Login = () => {
           <div className={styles.input_group}>
             <label htmlFor="password">密碼</label>
             <input
+            className={styles.input}
               type="password"
               id="password"
               value={password}
