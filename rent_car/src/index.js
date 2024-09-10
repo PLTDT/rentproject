@@ -17,6 +17,16 @@ import MemberInfoPage from './pages/MemberInfoPage';
 import ServiceAddressPage from './pages/ServiceAddressPage';
 import ServiceAddressPageIn from './pages/ServiceAddressPageIn';
 import LinePayResult from './components/LinePayResult';
+import CarMenu from './pages/CarMenu';
+import CarMenuIn from './pages/CarMenuIn';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Testbootstrap from './pages/testbootstrap';
+import Backlogin from './backcomponents/backlogin';
+import OrderInfoPage from './backpages/OrderInfoPage';
+import MembershipPage from './backpages//MembershipPage';
+import EmployeeInfoPage from './backpages//EmployeeInfoPage';
+import DashboardInfoPage from './backpages//DashboardInfoPage';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,6 +36,7 @@ root.render(
             <Route path="/HomePage" element={<HomePage />} />
             <Route path="/About" element={<About />} />
             <Route path="/Login" element={<Login />} />
+            <Route path="/CarMenu" element={<CarMenu />} />
             <Route path="/HomePageIn" element={<PrivateRoute element={<HomePageIn />} />} />
             <Route path="/AboutIn" element={<PrivateRoute element={<AboutIn />} />} />
             <Route path="/Rent" element={<PrivateRoute element={<RentPage />} />} />
@@ -36,6 +47,13 @@ root.render(
             <Route path='/ServiceAddressPage' element={<ServiceAddressPage />} />
             <Route path='/ServiceAddressPageIn' element={<PrivateRoute element={<ServiceAddressPageIn />}/>} />
             <Route path='/LinePayResult' element={<PrivateRoute element={<LinePayResult />}/>} />
+            <Route path="/CarMenuIn" element={<PrivateRoute element={<CarMenuIn />}/>} />
+            <Route path="/Testbootstrap" element={<Testbootstrap />} />
+            <Route path="/Backlogin" element={<Backlogin />} />
+            <Route path="/DashboardInfoPage" element={<DashboardInfoPage />} />
+            <Route path="/OrderInfoPage" element={<OrderInfoPage />} />
+            <Route path="/MembershipPage" element={<MembershipPage />} />
+            <Route path="/EmployeeInfoPage" element={<EmployeeInfoPage />} />
         </Routes>
     </Router>
 );

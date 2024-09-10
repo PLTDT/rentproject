@@ -82,7 +82,16 @@ const Login = ({ closeLogin }) => {
                     >
                         X
                     </button>
+                    <button
+                        className={login.staffonly}
+                        type="button"
+                        onClick={() => navigate('/Backlogin')}
+                    >
+                        員工專用
+                    </button>
+
                 </form>
+
             </div>
         </div>
     );

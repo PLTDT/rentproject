@@ -1,0 +1,73 @@
+/* Backstagechange.module.css */
+
+/* 容器樣式 */
+.container {
+  display: flex;
+}
+
+/* 側邊欄樣式 */
+.aside_info {
+  position: absolute;
+  width: 120px;
+  height: 100%;
+  background-color: #4c95ca;
+  padding: 20px;
+  color: rgb(0, 0, 0) !important;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.aside_info ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.aside_info ul li {
+  margin-bottom: 20px;
+}
+
+.aside_info ul li button {
+  width: 80px;
+  padding: 5px;
+  background-color: rgb(47, 71, 113);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 25px;
+}
+
+.aside_info ul li button.active,
+.aside_info ul li button:hover {
+  color: #1bc8df;
+  border-bottom: 2px solid #2be9f0;
+}
+
+/* 內容區域樣式 */
+.content {
+  margin-left: 120px; /* 確保內容區域不被側邊欄遮擋 */
+}
+
+.content h2 {
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  padding: 30px 23px;
+  font-weight: bold;
+}
+
+/* 訂單表格樣式 */
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  background-color: rgb(227, 221, 216);
+}
+
+.ordersTable th,
+.ordersTable td {
+  border-bottom: 1px solid black !important;
+  padding: 8px 10px;
+  color: black !important;
+  text-align: left;
+  font-size: 15px;
+}

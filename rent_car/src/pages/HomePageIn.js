@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageHeaderIn from '../components/PageHeaderIn';
-import Header from '../components/Header';
+import HeaderIn from '../components/HeaderIn';
 import FooterIn from '../components/FooterIn';
 import Section1 from '../components/Section1';
 import axios from 'axios';
@@ -68,7 +68,7 @@ const HomePageIn = () => {
     return (
         <div>
             <PageHeaderIn />
-            <Header />
+            <HeaderIn />
             <Section1 />
             <FooterIn />
         </div>
