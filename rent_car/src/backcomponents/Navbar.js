@@ -7,9 +7,6 @@ function Navbar() {
   return (
     <div className={navbar.navbar}>
       <div className={navbar.title}>GoRent後台管理系統</div>
-      <div className={navbar.profile}>
-        <p>{username ? `User: ${username}` : 'User Profile'}</p> {/* 如果有使用者名稱則顯示 */}
-      </div>
     </div>
   );
 }
