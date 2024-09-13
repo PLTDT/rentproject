@@ -87,12 +87,11 @@ body {
 }
 
 /* 錯誤消息 */
-.error {
+.errortxt {
     position: absolute;
+    bottom: 60px;
+    left: 0px;
     width: 100%;
-    bottom: 15%;
-    left: 50%;
-    transform:translateX(-50%);
     text-align: center;
     color: red;
 }

@@ -140,7 +140,7 @@ const Register = ({ closeRegister }) => {
                         required
                     />
                     
-                    {error && <p className={register.error}>{error}</p>} {/* 顯示錯誤訊息 */}
+                    {error && <p className={register.errortxt}>{error}</p>} {/* 顯示錯誤訊息 */}
                     
                     <button className={register.registerbtn} type="submit">
                         送出
