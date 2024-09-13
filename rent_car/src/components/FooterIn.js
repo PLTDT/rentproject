@@ -9,7 +9,7 @@ const Footer = () => {
                     <div className="row">
                         <div className={`${footer.footerContent} col-12 col-sm-4 col-md-4`}>
                             <h3>聯絡我們</h3>
-                            <p>Email: <br />cheaprent@gmail.com</p>
+                            <p>Email: <br />GoRent@gmail.com</p>
                             <p>電話號碼：<br />(02)-2795-8595</p>
                             <p>地址：<br />台北市大安區建國南路二段231號3樓</p>
                         </div>

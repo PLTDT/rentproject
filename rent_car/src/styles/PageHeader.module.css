@@ -120,7 +120,12 @@
 }
 
 .welcome {
+<<<<<<< HEAD
   position: relative;
+=======
+  position: absolute;
+  left:0%;
+>>>>>>> origin/Pocheng
   border: 2px solid #009688;
   padding: 10px;
   border-radius: 10px;
@@ -149,7 +154,7 @@
   border-radius: 2px; /* 圓角效果 */
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1130px) {
   .navbar {
     display: none;
   }
@@ -161,7 +166,7 @@
   }
 }
 
-@media screen and (min-width: 981px) {
+@media screen and (min-width: 1131px) {
   .hamburger {
     display: none;
   }

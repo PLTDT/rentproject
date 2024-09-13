@@ -18,6 +18,8 @@
   padding-top: 20px;
   width: 80%;
   margin: auto; /* 自動外邊距，居中對齊 */
+  /*display: flex;
+  justify-content: center;*/
 
 }
 /* 每個內容區塊樣式 */
@@ -131,4 +133,11 @@ h3 {
   padding: 7px; /* 內邊距 */
 }
 
+/*@media screen and (min-width: 992px) {
+  .footerContent {
+    margin-left: 20px;
+    margin-right: 20px;
+    flex: 0 0 calc(33.33% - 40px); /* 減去兩邊的 margin 確保寬度不超過 100% 
+  }
+}*/
 
