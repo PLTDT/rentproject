@@ -120,12 +120,8 @@
 }
 
 .welcome {
-<<<<<<< HEAD
-  position: relative;
-=======
   position: absolute;
   left:0%;
->>>>>>> origin/Pocheng
   border: 2px solid #009688;
   padding: 10px;
   border-radius: 10px;
