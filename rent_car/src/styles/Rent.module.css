@@ -217,3 +217,7 @@
     cursor: not-allowed; /* 更改游標樣式為禁止 */
     opacity: 0.6; /* 設置按鈕的透明度 */
 }
+
+.error {
+    color: red;
+}
