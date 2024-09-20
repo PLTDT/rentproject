@@ -54,10 +54,6 @@ const MemberInfo = () => {
                             <div>
                                 <p>姓名：{item.employeename}</p>
                             </div>
-                            <div>
-                                <p>電話：</p>
-                                <p>{item.phone}</p>
-                            </div>
                         </div>
                     )) : <p>無會員資訊。</p>}
                     {/* 顯示錯誤信息 */}
