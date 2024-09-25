@@ -1,0 +1,58 @@
+.section1 {
+    width: 100%;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0)), url(../assets/section1.jpg);
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align:left;
+    color: #fff;
+}
+
+.content h1 {
+    font-size: 64px;
+    margin-top: 10px;
+    padding-left: 5%;
+}
+
+.content p {
+    font-size: 32px;
+    line-height: 10px;
+    padding-left: 5%;
+}
+
+.contentinfo {
+    width: 100%;
+    position: absolute;
+    top: 55%;
+    text-align:right;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+.contentinfo p {
+    padding-right: 12%;
+    font-size: 32px;
+    height: 100px;
+}
+
+.contentinfosp span {
+    padding-right: 12%;
+    font-size: 36px;
+    height: 100px;
+}
+
+.sp {
+    font-size: 40px;
+}
