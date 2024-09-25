@@ -1,0 +1,174 @@
+.form_bg {
+    width: 100%;
+    height: 120vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(../assets/register.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    color: black;
+}
+
+
+.booking_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking_form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: black;
+}
+
+.form_section {
+    margin-bottom: 15px;
+    color: black;
+}
+
+.form_section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: black;
+}
+
+.form_section input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form_rbt {
+    width: 100%;
+    padding: 10px;
+    background-color: #e60012;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form_rbt:hover {
+    background-color: #cc0010;
+}
+
+.form_date {
+    color: black;
+}
+
+.form_input {
+    color: black;
+}
+
+.form_ctype {
+    width: calc(100%);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: black;
+}
+
+.form_ctype option {
+    color: black;
+}
+
+.form_pcount {
+    color: black;
+}
+
+.form_ccode {
+    color: black;
+}
+.container2 {
+    position: relative;
+    max-width:1200px;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    color: black;
+}
+.form_title {
+    font-size: 24px;
+    color:black;
+    text-align: center;
+    margin: 20px;
+}
+.form_table{
+    position: relative;
+    color: black;
+    /*border: solid 1px black;*/
+    margin: auto;
+    margin-bottom: 30px;
+}
+.form_thead{
+    position: relative;
+    color: black;
+    background-color: #ececec;
+    padding: 10px;
+    text-align: center;
+    
+}
+.form_tbody{
+    position: relative;
+    color: black;
+    background-color: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+}
+.button{
+    background-color: #101010;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.button:hover{
+    background-color: #979797;
+}
+.form_none{
+    display: none;
+}
+
+/* Rent.module.css */
+.deleted {
+    background-color: #f2f2f2; /* 或者其他暗灰色 */
+    color: #888; /* 或者其他顏色 */
+    text-decoration: line-through; /* 顯示刪除線 */
+}
+
+.deleted button {
+    cursor: not-allowed; /* 禁止點擊的光標 */
+    opacity: 0.5; /* 使按鈕變得半透明 */
+}
+
+.status {
+    color: black;
+}
